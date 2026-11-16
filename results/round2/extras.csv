@@ -1,0 +1,5 @@
+image,format,target,setting,score,bytes,status,iterations,encoded
+vscode-jxl-rs,JPEG444,70,69,69.2604,232149,reached,6,work/round2/lossy/vscode-jxl-rs/JPEG444_t70_q69.jpg
+coaf-logo,JXLd,70,9.995,77.1869,7042,NOT REACHED,8,work/round2/lossy/coaf-logo/JXLd_t70_d9.995.jxl
+vscode-jxl-rs,JPEG444,85,91,85.8955,472734,reached,5,work/round2/lossy/vscode-jxl-rs/JPEG444_t85_q91.jpg
+coaf-logo,JXLd,85,3.825,85.0297,9345,reached,2,work/round2/lossy/coaf-logo/JXLd_t85_d3.825.jxl

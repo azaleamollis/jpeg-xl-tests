@@ -1,0 +1,8 @@
+image,quality,file_kind,subsampling,progressive,luma_quant_first8,bytes
+vscode-jxl-rs,89,target-70 trial,4:2:2,yes,4 4 4 4 6 8 12 19,274726
+vscode-jxl-rs,90,target-70 trial,4:4:4,yes,3 3 3 4 5 7 11 17,404484
+bush-official-portrait,75,part A file,4:2:0,yes,8 8 8 9 13 19 28 43,227536
+bush-official-portrait,90,part A file,4:4:4,yes,3 3 3 4 5 7 11 17,937863
+bush-official-portrait,93,target-85 result,4:4:4,yes,2 2 2 3 4 5 8 12,1258553
+chisinau-zoo-lake,90,part A file,4:4:4,yes,3 3 3 4 5 7 11 17,1486233
+chisinau-zoo-lake,91,target-85 result,4:4:4,yes,3 3 3 3 5 7 10 15,1557579

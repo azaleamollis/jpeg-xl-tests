@@ -1,0 +1,113 @@
+image,kind,target,quality,subsampling,progressive,bytes,file
+archives-ii,default-flag trial,85,50,4:2:0,yes,168923,work/round2/lossy/archives-ii/MOZ_t85_q50.jpg
+archives-ii,default-flag trial,85,75,4:2:0,yes,256724,work/round2/lossy/archives-ii/MOZ_t85_q75.jpg
+archives-ii,default-flag trial,85,88,4:2:2,yes,460211,work/round2/lossy/archives-ii/MOZ_t85_q88.jpg
+archives-ii,default-flag trial,85,94,4:4:4,yes,960716,work/round2/lossy/archives-ii/MOZ_t85_q94.jpg
+archives-ii,default-flag trial,85,91,4:4:4,yes,693898,work/round2/lossy/archives-ii/MOZ_t85_q91.jpg
+bush-official-portrait,default-flag trial,85,50,4:2:0,yes,114677,work/round2/lossy/bush-official-portrait/MOZ_t85_q50.jpg
+bush-official-portrait,default-flag trial,85,75,4:2:0,yes,227536,work/round2/lossy/bush-official-portrait/MOZ_t85_q75.jpg
+bush-official-portrait,default-flag trial,85,88,4:2:2,yes,548315,work/round2/lossy/bush-official-portrait/MOZ_t85_q88.jpg
+bush-official-portrait,default-flag trial,85,94,4:4:4,yes,1436229,work/round2/lossy/bush-official-portrait/MOZ_t85_q94.jpg
+bush-official-portrait,default-flag trial,85,91,4:4:4,yes,999360,work/round2/lossy/bush-official-portrait/MOZ_t85_q91.jpg
+bush-official-portrait,default-flag trial,85,92,4:4:4,yes,1113800,work/round2/lossy/bush-official-portrait/MOZ_t85_q92.jpg
+bush-official-portrait,default-flag trial,85,93,4:4:4,yes,1258553,work/round2/lossy/bush-official-portrait/MOZ_t85_q93.jpg
+chisinau-zoo-lake,default-flag trial,85,50,4:2:0,yes,382743,work/round2/lossy/chisinau-zoo-lake/MOZ_t85_q50.jpg
+chisinau-zoo-lake,default-flag trial,85,75,4:2:0,yes,606977,work/round2/lossy/chisinau-zoo-lake/MOZ_t85_q75.jpg
+chisinau-zoo-lake,default-flag trial,85,88,4:2:2,yes,1054639,work/round2/lossy/chisinau-zoo-lake/MOZ_t85_q88.jpg
+chisinau-zoo-lake,default-flag trial,85,94,4:4:4,yes,1981750,work/round2/lossy/chisinau-zoo-lake/MOZ_t85_q94.jpg
+chisinau-zoo-lake,default-flag trial,85,91,4:4:4,yes,1557579,work/round2/lossy/chisinau-zoo-lake/MOZ_t85_q91.jpg
+summer-tanager,default-flag trial,85,50,4:2:0,yes,70453,work/round2/lossy/summer-tanager/MOZ_t85_q50.jpg
+summer-tanager,default-flag trial,85,75,4:2:0,yes,112115,work/round2/lossy/summer-tanager/MOZ_t85_q75.jpg
+summer-tanager,default-flag trial,85,88,4:2:2,yes,218477,work/round2/lossy/summer-tanager/MOZ_t85_q88.jpg
+summer-tanager,default-flag trial,85,94,4:4:4,yes,457870,work/round2/lossy/summer-tanager/MOZ_t85_q94.jpg
+vscode-jxl-rs,default-flag trial,85,50,4:2:0,yes,99595,work/round2/lossy/vscode-jxl-rs/MOZ_t85_q50.jpg
+vscode-jxl-rs,default-flag trial,85,75,4:2:0,yes,154367,work/round2/lossy/vscode-jxl-rs/MOZ_t85_q75.jpg
+vscode-jxl-rs,default-flag trial,85,88,4:2:2,yes,265359,work/round2/lossy/vscode-jxl-rs/MOZ_t85_q88.jpg
+vscode-jxl-rs,default-flag trial,85,94,4:4:4,yes,518571,work/round2/lossy/vscode-jxl-rs/MOZ_t85_q94.jpg
+vscode-jxl-rs,default-flag trial,85,91,4:4:4,yes,423734,work/round2/lossy/vscode-jxl-rs/MOZ_t85_q91.jpg
+archives-ii,default-flag trial,70,50,4:2:0,yes,168923,work/round2/lossy/archives-ii/MOZ_t70_q50.jpg
+archives-ii,default-flag trial,70,75,4:2:0,yes,256724,work/round2/lossy/archives-ii/MOZ_t70_q75.jpg
+archives-ii,default-flag trial,70,62,4:2:0,yes,200594,work/round2/lossy/archives-ii/MOZ_t70_q62.jpg
+archives-ii,default-flag trial,70,68,4:2:0,yes,222701,work/round2/lossy/archives-ii/MOZ_t70_q68.jpg
+bush-official-portrait,default-flag trial,70,50,4:2:0,yes,114677,work/round2/lossy/bush-official-portrait/MOZ_t70_q50.jpg
+bush-official-portrait,default-flag trial,70,75,4:2:0,yes,227536,work/round2/lossy/bush-official-portrait/MOZ_t70_q75.jpg
+bush-official-portrait,default-flag trial,70,88,4:2:2,yes,548315,work/round2/lossy/bush-official-portrait/MOZ_t70_q88.jpg
+bush-official-portrait,default-flag trial,70,81,4:2:2,yes,354853,work/round2/lossy/bush-official-portrait/MOZ_t70_q81.jpg
+bush-official-portrait,default-flag trial,70,78,4:2:0,yes,259281,work/round2/lossy/bush-official-portrait/MOZ_t70_q78.jpg
+chisinau-zoo-lake,default-flag trial,70,50,4:2:0,yes,382743,work/round2/lossy/chisinau-zoo-lake/MOZ_t70_q50.jpg
+chisinau-zoo-lake,default-flag trial,70,75,4:2:0,yes,606977,work/round2/lossy/chisinau-zoo-lake/MOZ_t70_q75.jpg
+chisinau-zoo-lake,default-flag trial,70,88,4:2:2,yes,1054639,work/round2/lossy/chisinau-zoo-lake/MOZ_t70_q88.jpg
+chisinau-zoo-lake,default-flag trial,70,81,4:2:2,yes,805083,work/round2/lossy/chisinau-zoo-lake/MOZ_t70_q81.jpg
+chisinau-zoo-lake,default-flag trial,70,78,4:2:0,yes,659910,work/round2/lossy/chisinau-zoo-lake/MOZ_t70_q78.jpg
+summer-tanager,default-flag trial,70,50,4:2:0,yes,70453,work/round2/lossy/summer-tanager/MOZ_t70_q50.jpg
+summer-tanager,default-flag trial,70,75,4:2:0,yes,112115,work/round2/lossy/summer-tanager/MOZ_t70_q75.jpg
+summer-tanager,default-flag trial,70,62,4:2:0,yes,85755,work/round2/lossy/summer-tanager/MOZ_t70_q62.jpg
+summer-tanager,default-flag trial,70,68,4:2:0,yes,96281,work/round2/lossy/summer-tanager/MOZ_t70_q68.jpg
+summer-tanager,default-flag trial,70,65,4:2:0,yes,90750,work/round2/lossy/summer-tanager/MOZ_t70_q65.jpg
+vscode-jxl-rs,default-flag trial,70,50,4:2:0,yes,99595,work/round2/lossy/vscode-jxl-rs/MOZ_t70_q50.jpg
+vscode-jxl-rs,default-flag trial,70,75,4:2:0,yes,154367,work/round2/lossy/vscode-jxl-rs/MOZ_t70_q75.jpg
+vscode-jxl-rs,default-flag trial,70,88,4:2:2,yes,265359,work/round2/lossy/vscode-jxl-rs/MOZ_t70_q88.jpg
+vscode-jxl-rs,default-flag trial,70,94,4:4:4,yes,518571,work/round2/lossy/vscode-jxl-rs/MOZ_t70_q94.jpg
+vscode-jxl-rs,default-flag trial,70,91,4:4:4,yes,423734,work/round2/lossy/vscode-jxl-rs/MOZ_t70_q91.jpg
+vscode-jxl-rs,default-flag trial,70,89,4:2:2,yes,274726,work/round2/lossy/vscode-jxl-rs/MOZ_t70_q89.jpg
+vscode-jxl-rs,default-flag trial,70,90,4:4:4,yes,404484,work/round2/lossy/vscode-jxl-rs/MOZ_t70_q90.jpg
+archives-ii,forced 4:2:0 trial,70,50,4:2:0,yes,168923,work/round2/lossy/archives-ii/MOZ420_t70_q50.jpg
+archives-ii,forced 4:2:0 trial,70,75,4:2:0,yes,256724,work/round2/lossy/archives-ii/MOZ420_t70_q75.jpg
+archives-ii,forced 4:2:0 trial,70,62,4:2:0,yes,200594,work/round2/lossy/archives-ii/MOZ420_t70_q62.jpg
+archives-ii,forced 4:2:0 trial,70,68,4:2:0,yes,222701,work/round2/lossy/archives-ii/MOZ420_t70_q68.jpg
+bush-official-portrait,forced 4:2:0 trial,70,50,4:2:0,yes,114677,work/round2/lossy/bush-official-portrait/MOZ420_t70_q50.jpg
+bush-official-portrait,forced 4:2:0 trial,70,75,4:2:0,yes,227536,work/round2/lossy/bush-official-portrait/MOZ420_t70_q75.jpg
+bush-official-portrait,forced 4:2:0 trial,70,88,4:2:0,yes,448043,work/round2/lossy/bush-official-portrait/MOZ420_t70_q88.jpg
+bush-official-portrait,forced 4:2:0 trial,70,81,4:2:0,yes,297983,work/round2/lossy/bush-official-portrait/MOZ420_t70_q81.jpg
+bush-official-portrait,forced 4:2:0 trial,70,78,4:2:0,yes,259281,work/round2/lossy/bush-official-portrait/MOZ420_t70_q78.jpg
+chisinau-zoo-lake,forced 4:2:0 trial,70,50,4:2:0,yes,382743,work/round2/lossy/chisinau-zoo-lake/MOZ420_t70_q50.jpg
+chisinau-zoo-lake,forced 4:2:0 trial,70,75,4:2:0,yes,606977,work/round2/lossy/chisinau-zoo-lake/MOZ420_t70_q75.jpg
+chisinau-zoo-lake,forced 4:2:0 trial,70,88,4:2:0,yes,927559,work/round2/lossy/chisinau-zoo-lake/MOZ420_t70_q88.jpg
+chisinau-zoo-lake,forced 4:2:0 trial,70,81,4:2:0,yes,720578,work/round2/lossy/chisinau-zoo-lake/MOZ420_t70_q81.jpg
+chisinau-zoo-lake,forced 4:2:0 trial,70,78,4:2:0,yes,659910,work/round2/lossy/chisinau-zoo-lake/MOZ420_t70_q78.jpg
+summer-tanager,forced 4:2:0 trial,70,50,4:2:0,yes,70453,work/round2/lossy/summer-tanager/MOZ420_t70_q50.jpg
+summer-tanager,forced 4:2:0 trial,70,75,4:2:0,yes,112115,work/round2/lossy/summer-tanager/MOZ420_t70_q75.jpg
+summer-tanager,forced 4:2:0 trial,70,62,4:2:0,yes,85755,work/round2/lossy/summer-tanager/MOZ420_t70_q62.jpg
+summer-tanager,forced 4:2:0 trial,70,68,4:2:0,yes,96281,work/round2/lossy/summer-tanager/MOZ420_t70_q68.jpg
+summer-tanager,forced 4:2:0 trial,70,65,4:2:0,yes,90750,work/round2/lossy/summer-tanager/MOZ420_t70_q65.jpg
+vscode-jxl-rs,forced 4:2:0 trial,70,50,4:2:0,yes,99595,work/round2/lossy/vscode-jxl-rs/MOZ420_t70_q50.jpg
+vscode-jxl-rs,forced 4:2:0 trial,70,75,4:2:0,yes,154367,work/round2/lossy/vscode-jxl-rs/MOZ420_t70_q75.jpg
+vscode-jxl-rs,forced 4:2:0 trial,70,88,4:2:0,yes,231572,work/round2/lossy/vscode-jxl-rs/MOZ420_t70_q88.jpg
+vscode-jxl-rs,forced 4:2:0 trial,70,94,4:2:0,yes,321220,work/round2/lossy/vscode-jxl-rs/MOZ420_t70_q94.jpg
+vscode-jxl-rs,forced 4:2:0 trial,70,97,4:2:0,yes,421270,work/round2/lossy/vscode-jxl-rs/MOZ420_t70_q97.jpg
+vscode-jxl-rs,forced 4:2:0 trial,70,99,4:2:0,yes,541372,work/round2/lossy/vscode-jxl-rs/MOZ420_t70_q99.jpg
+vscode-jxl-rs,forced 4:2:0 trial,70,100,4:2:0,yes,604348,work/round2/lossy/vscode-jxl-rs/MOZ420_t70_q100.jpg
+archives-ii,forced 4:2:0 trial,85,50,4:2:0,yes,168923,work/round2/lossy/archives-ii/MOZ420_t85_q50.jpg
+archives-ii,forced 4:2:0 trial,85,75,4:2:0,yes,256724,work/round2/lossy/archives-ii/MOZ420_t85_q75.jpg
+archives-ii,forced 4:2:0 trial,85,88,4:2:0,yes,400093,work/round2/lossy/archives-ii/MOZ420_t85_q88.jpg
+archives-ii,forced 4:2:0 trial,85,94,4:2:0,yes,616304,work/round2/lossy/archives-ii/MOZ420_t85_q94.jpg
+bush-official-portrait,forced 4:2:0 trial,85,50,4:2:0,yes,114677,work/round2/lossy/bush-official-portrait/MOZ420_t85_q50.jpg
+bush-official-portrait,forced 4:2:0 trial,85,75,4:2:0,yes,227536,work/round2/lossy/bush-official-portrait/MOZ420_t85_q75.jpg
+bush-official-portrait,forced 4:2:0 trial,85,88,4:2:0,yes,448043,work/round2/lossy/bush-official-portrait/MOZ420_t85_q88.jpg
+bush-official-portrait,forced 4:2:0 trial,85,94,4:2:0,yes,775808,work/round2/lossy/bush-official-portrait/MOZ420_t85_q94.jpg
+bush-official-portrait,forced 4:2:0 trial,85,97,4:2:0,yes,1212412,work/round2/lossy/bush-official-portrait/MOZ420_t85_q97.jpg
+bush-official-portrait,forced 4:2:0 trial,85,95,4:2:0,yes,851306,work/round2/lossy/bush-official-portrait/MOZ420_t85_q95.jpg
+chisinau-zoo-lake,forced 4:2:0 trial,85,50,4:2:0,yes,382743,work/round2/lossy/chisinau-zoo-lake/MOZ420_t85_q50.jpg
+chisinau-zoo-lake,forced 4:2:0 trial,85,75,4:2:0,yes,606977,work/round2/lossy/chisinau-zoo-lake/MOZ420_t85_q75.jpg
+chisinau-zoo-lake,forced 4:2:0 trial,85,88,4:2:0,yes,927559,work/round2/lossy/chisinau-zoo-lake/MOZ420_t85_q88.jpg
+chisinau-zoo-lake,forced 4:2:0 trial,85,94,4:2:0,yes,1306054,work/round2/lossy/chisinau-zoo-lake/MOZ420_t85_q94.jpg
+chisinau-zoo-lake,forced 4:2:0 trial,85,97,4:2:0,yes,1743385,work/round2/lossy/chisinau-zoo-lake/MOZ420_t85_q97.jpg
+summer-tanager,forced 4:2:0 trial,85,50,4:2:0,yes,70453,work/round2/lossy/summer-tanager/MOZ420_t85_q50.jpg
+summer-tanager,forced 4:2:0 trial,85,75,4:2:0,yes,112115,work/round2/lossy/summer-tanager/MOZ420_t85_q75.jpg
+summer-tanager,forced 4:2:0 trial,85,88,4:2:0,yes,189609,work/round2/lossy/summer-tanager/MOZ420_t85_q88.jpg
+summer-tanager,forced 4:2:0 trial,85,94,4:2:0,yes,341612,work/round2/lossy/summer-tanager/MOZ420_t85_q94.jpg
+vscode-jxl-rs,forced 4:2:0 trial,85,50,4:2:0,yes,99595,work/round2/lossy/vscode-jxl-rs/MOZ420_t85_q50.jpg
+vscode-jxl-rs,forced 4:2:0 trial,85,75,4:2:0,yes,154367,work/round2/lossy/vscode-jxl-rs/MOZ420_t85_q75.jpg
+vscode-jxl-rs,forced 4:2:0 trial,85,88,4:2:0,yes,231572,work/round2/lossy/vscode-jxl-rs/MOZ420_t85_q88.jpg
+vscode-jxl-rs,forced 4:2:0 trial,85,94,4:2:0,yes,321220,work/round2/lossy/vscode-jxl-rs/MOZ420_t85_q94.jpg
+vscode-jxl-rs,forced 4:2:0 trial,85,97,4:2:0,yes,421270,work/round2/lossy/vscode-jxl-rs/MOZ420_t85_q97.jpg
+vscode-jxl-rs,forced 4:2:0 trial,85,99,4:2:0,yes,541372,work/round2/lossy/vscode-jxl-rs/MOZ420_t85_q99.jpg
+vscode-jxl-rs,forced 4:2:0 trial,85,100,4:2:0,yes,604348,work/round2/lossy/vscode-jxl-rs/MOZ420_t85_q100.jpg
+archives-ii,part A file (default flags),,75,4:2:0,yes,256724,work/round2/recompress/archives-ii_MOZ_q75.jpg
+archives-ii,part A file (default flags),,90,4:4:4,yes,662467,work/round2/recompress/archives-ii_MOZ_q90.jpg
+bush-official-portrait,part A file (default flags),,75,4:2:0,yes,227536,work/round2/recompress/bush-official-portrait_MOZ_q75.jpg
+bush-official-portrait,part A file (default flags),,90,4:4:4,yes,937863,work/round2/recompress/bush-official-portrait_MOZ_q90.jpg
+chisinau-zoo-lake,part A file (default flags),,75,4:2:0,yes,606977,work/round2/recompress/chisinau-zoo-lake_MOZ_q75.jpg
+chisinau-zoo-lake,part A file (default flags),,90,4:4:4,yes,1486233,work/round2/recompress/chisinau-zoo-lake_MOZ_q90.jpg
+summer-tanager,part A file (default flags),,75,4:2:0,yes,112115,work/round2/recompress/summer-tanager_MOZ_q75.jpg
+summer-tanager,part A file (default flags),,90,4:4:4,yes,300560,work/round2/recompress/summer-tanager_MOZ_q90.jpg

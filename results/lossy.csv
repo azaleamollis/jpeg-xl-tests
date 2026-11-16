@@ -1,0 +1,25 @@
+image,format,quality,score,bytes,status,iterations
+summer-tanager,JPEG,62,70.8340,108476,reached,3
+summer-tanager,WebP,68,69.6579,64622,reached,4
+summer-tanager,AVIF,44,69.9572,39005,reached,6
+summer-tanager,JXL,50,69.5744,47401,reached,1
+archives-ii,JPEG,68,70.5070,276425,reached,4
+archives-ii,WebP,75,69.6723,172802,reached,2
+archives-ii,AVIF,50,69.0230,97157,reached,1
+archives-ii,JXL,56,69.2973,150652,reached,4
+bush-official-portrait,JPEG,75,69.9034,325355,reached,2
+bush-official-portrait,WebP,85,69.2013,348982,reached,7
+bush-official-portrait,AVIF,62,69.2441,242305,reached,3
+bush-official-portrait,JXL,78,70.8999,216007,reached,5
+chisinau-zoo-lake,JPEG,71,70.4658,717955,reached,5
+chisinau-zoo-lake,WebP,75,70.4406,716152,reached,2
+chisinau-zoo-lake,AVIF,59,70.1068,529004,reached,5
+chisinau-zoo-lake,JXL,75,69.9223,538641,reached,2
+coaf-logo,JPEG,,,,SKIPPED (real transparency; JPEG has no alpha),0
+coaf-logo,WebP,9,70.9144,7198,reached,5
+coaf-logo,AVIF,4,69.7767,4477,reached,6
+coaf-logo,JXL,21,78.6437,7328,NOT REACHED,6
+vscode-jxl-rs,JPEG,99,64.8935,588194,NOT REACHED,7
+vscode-jxl-rs,WebP,97,59.9660,270816,NOT REACHED,7
+vscode-jxl-rs,AVIF,40,70.4296,69496,reached,5
+vscode-jxl-rs,JXL,40,70.7411,87586,reached,5

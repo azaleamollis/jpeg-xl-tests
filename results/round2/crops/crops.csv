@@ -1,0 +1,23 @@
+file,source_image,format,target,setting,score,bytes_full_encoded_file,crop_box,status
+summer-tanager_original.png,summer-tanager.tif,original (working PNG),,,,,"x=750..1249, y=438..787 (left=750, top=438, 500x350) of 2000x1227",original
+summer-tanager_JPEG-libjpeg-turbo_t85.png,summer-tanager.tif,"JPEG (libjpeg-turbo, baseline)",85,94,85.6437,490907,"x=750..1249, y=438..787 (left=750, top=438, 500x350) of 2000x1227",reached
+summer-tanager_JPEG-MozJPEG_t85.png,summer-tanager.tif,"JPEG (MozJPEG 4.0.3, progressive)",85,94,85.6557,457870,"x=750..1249, y=438..787 (left=750, top=438, 500x350) of 2000x1227",reached
+summer-tanager_WebP_t85.png,summer-tanager.tif,WebP (cwebp 1.6.0),85,95,86.0983,473088,"x=750..1249, y=438..787 (left=750, top=438, 500x350) of 2000x1227","target not reached, closest tried (score 86.10)"
+summer-tanager_AVIF_t85.png,summer-tanager.tif,"AVIF (avifenc 1.4.2, aom 3.14.1)",85,84,84.2148,243227,"x=750..1249, y=438..787 (left=750, top=438, 500x350) of 2000x1227",reached
+summer-tanager_JXL_t85.png,summer-tanager.tif,JXL (cjxl 0.12.0),85,91,85.5113,218195,"x=750..1249, y=438..787 (left=750, top=438, 500x350) of 2000x1227",reached
+summer-tanager_JPEG-libjpeg-turbo_t70.png,summer-tanager.tif,"JPEG (libjpeg-turbo, baseline)",70,62,70.8340,108476,"x=750..1249, y=438..787 (left=750, top=438, 500x350) of 2000x1227",reached
+summer-tanager_JPEG-MozJPEG_t70.png,summer-tanager.tif,"JPEG (MozJPEG 4.0.3, progressive)",70,65,70.4444,90750,"x=750..1249, y=438..787 (left=750, top=438, 500x350) of 2000x1227",reached
+summer-tanager_WebP_t70.png,summer-tanager.tif,WebP (cwebp 1.6.0),70,68,69.6579,64622,"x=750..1249, y=438..787 (left=750, top=438, 500x350) of 2000x1227",reached
+summer-tanager_AVIF_t70.png,summer-tanager.tif,"AVIF (avifenc 1.4.2, aom 3.14.1)",70,44,69.9572,39005,"x=750..1249, y=438..787 (left=750, top=438, 500x350) of 2000x1227",reached
+summer-tanager_JXL_t70.png,summer-tanager.tif,JXL (cjxl 0.12.0),70,50,69.5744,47401,"x=750..1249, y=438..787 (left=750, top=438, 500x350) of 2000x1227",reached
+vscode-jxl-rs_original.png,vscode-jxl-rs.png,original (working PNG),,,,,"x=710..1209, y=365..714 (left=710, top=365, 500x350) of 1920x1080",original
+vscode-jxl-rs_JPEG-libjpeg-turbo_t85.png,vscode-jxl-rs.png,"JPEG (libjpeg-turbo, baseline)",85,99,64.8935,588194,"x=710..1209, y=365..714 (left=710, top=365, 500x350) of 1920x1080","target not reached, closest tried (score 64.89)"
+vscode-jxl-rs_JPEG-MozJPEG_t85.png,vscode-jxl-rs.png,"JPEG (MozJPEG 4.0.3, progressive)",85,91,84.0057,423734,"x=710..1209, y=365..714 (left=710, top=365, 500x350) of 1920x1080",reached
+vscode-jxl-rs_WebP_t85.png,vscode-jxl-rs.png,WebP (cwebp 1.6.0),85,97,59.9660,270816,"x=710..1209, y=365..714 (left=710, top=365, 500x350) of 1920x1080","target not reached, closest tried (score 59.97)"
+vscode-jxl-rs_AVIF_t85.png,vscode-jxl-rs.png,"AVIF (avifenc 1.4.2, aom 3.14.1)",85,62,85.9570,120812,"x=710..1209, y=365..714 (left=710, top=365, 500x350) of 1920x1080",reached
+vscode-jxl-rs_JXL_t85.png,vscode-jxl-rs.png,JXL (cjxl 0.12.0),85,81,85.2861,243142,"x=710..1209, y=365..714 (left=710, top=365, 500x350) of 1920x1080",reached
+vscode-jxl-rs_JPEG-libjpeg-turbo_t70.png,vscode-jxl-rs.png,"JPEG (libjpeg-turbo, baseline)",70,99,64.8935,588194,"x=710..1209, y=365..714 (left=710, top=365, 500x350) of 1920x1080","target not reached, closest tried (score 64.89)"
+vscode-jxl-rs_JPEG-MozJPEG_t70.png,vscode-jxl-rs.png,"JPEG (MozJPEG 4.0.3, progressive)",70,89,68.9313,274726,"x=710..1209, y=365..714 (left=710, top=365, 500x350) of 1920x1080","target not reached, closest tried (score 68.93)"
+vscode-jxl-rs_WebP_t70.png,vscode-jxl-rs.png,WebP (cwebp 1.6.0),70,97,59.9660,270816,"x=710..1209, y=365..714 (left=710, top=365, 500x350) of 1920x1080","target not reached, closest tried (score 59.97)"
+vscode-jxl-rs_AVIF_t70.png,vscode-jxl-rs.png,"AVIF (avifenc 1.4.2, aom 3.14.1)",70,40,70.4296,69496,"x=710..1209, y=365..714 (left=710, top=365, 500x350) of 1920x1080",reached
+vscode-jxl-rs_JXL_t70.png,vscode-jxl-rs.png,JXL (cjxl 0.12.0),70,40,70.7411,87586,"x=710..1209, y=365..714 (left=710, top=365, 500x350) of 1920x1080",reached

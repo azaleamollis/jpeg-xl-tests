@@ -1,0 +1,60 @@
+﻿[ExifTool]      ExifToolVersion                 : 13.59
+[System]        FileName                        : chisinau-zoo-lake.tif
+[System]        Directory                       : sources
+[System]        FileSize                        : 145 MB
+[System]        ZoneIdentifier                  : Exists
+[System]        FileModifyDate                  : 2026:10:16 00:19:18+02:00
+[System]        FileAccessDate                  : 2026:10:16 02:05:26+02:00
+[System]        FileCreateDate                  : 2026:10:16 00:42:08+02:00
+[System]        FilePermissions                 : -rw-rw-rw-
+[File]          FileType                        : TIFF
+[File]          FileTypeExtension               : tif
+[File]          MIMEType                        : image/tiff
+[File]          ExifByteOrder                   : Little-endian (Intel, II)
+[IFD0]          ImageWidth                      : 6016
+[IFD0]          ImageHeight                     : 4012
+[IFD0]          BitsPerSample                   : 16 16 16
+[IFD0]          Compression                     : Uncompressed
+[IFD0]          PhotometricInterpretation       : RGB
+[IFD0]          StripOffsets                    : 8
+[IFD0]          Orientation                     : Horizontal (normal)
+[IFD0]          SamplesPerPixel                 : 3
+[IFD0]          RowsPerStrip                    : 4012
+[IFD0]          StripByteCounts                 : 144817152
+[IFD0]          PlanarConfiguration             : Chunky
+[IFD0]          Software                        : RawTherapee 5.8
+[IFD0]          SampleFormat                    : Unsigned; Unsigned; Unsigned
+[ICC-header]    ProfileCMMType                  : Little CMS
+[ICC-header]    ProfileVersion                  : 4.3.0
+[ICC-header]    ProfileClass                    : Display Device Profile
+[ICC-header]    ColorSpaceData                  : RGB
+[ICC-header]    ProfileConnectionSpace          : XYZ
+[ICC-header]    ProfileDateTime                 : 2018:11:13 11:18:51
+[ICC-header]    ProfileFileSignature            : acsp
+[ICC-header]    PrimaryPlatform                 : Microsoft Corporation
+[ICC-header]    CMMFlags                        : Not Embedded, Independent
+[ICC-header]    DeviceManufacturer              : 
+[ICC-header]    DeviceModel                     : 
+[ICC-header]    DeviceAttributes                : Reflective, Glossy, Positive, Color
+[ICC-header]    RenderingIntent                 : Perceptual
+[ICC-header]    ConnectionSpaceIlluminant       : 0.9642 1 0.82491
+[ICC-header]    ProfileCreator                  : Little CMS
+[ICC-header]    ProfileID                       : 0
+[ICC_Profile]   ProfileDescription              : RTv4_sRGB
+[ICC_Profile]   ProfileCopyright                : Copyright RawTherapee 2018, CC0
+[ICC_Profile]   MediaWhitePoint                 : 0.9642 1 0.82491
+[ICC_Profile]   ChromaticAdaptation             : 1.04788 0.02292 -0.05022 0.02959 0.99048 -0.01707 -0.00925 0.01508 0.75168
+[ICC_Profile]   RedMatrixColumn                 : 0.43604 0.22249 0.01392
+[ICC_Profile]   BlueMatrixColumn                : 0.14305 0.06061 0.71391
+[ICC_Profile]   GreenMatrixColumn               : 0.38512 0.7169 0.09706
+[ICC_Profile]   RedTRC                          : (Binary data 40 bytes, use -b option to extract)
+[ICC_Profile]   GreenTRC                        : (Binary data 40 bytes, use -b option to extract)
+[ICC_Profile]   BlueTRC                         : (Binary data 40 bytes, use -b option to extract)
+[ICC_Profile]   DeviceMfgDesc                   : RawTherapee
+[ICC-chrm]      ChromaticityChannels            : 3
+[ICC-chrm]      ChromaticityColorant            : Unknown
+[ICC-chrm]      ChromaticityChannel1            : 0.64 0.33
+[ICC-chrm]      ChromaticityChannel2            : 0.3 0.60001
+[ICC-chrm]      ChromaticityChannel3            : 0.14999 0.06
+[Composite]     ImageSize                       : 6016x4012
+[Composite]     Megapixels                      : 24.1

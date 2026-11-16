@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image decode-speed test</title>
+<style>
+:root{--bg:#fff;--fg:#1d2330;--mut:#5b6472;--line:#d9dee7;--acc:#1f5fbf;--warn:#9a5b00;--bad:#b42318;--ok:#17653a;--soft:#f4f6fa;--noisy:#fff3d6}
+@media (prefers-color-scheme:dark){:root{--bg:#14171d;--fg:#e6e9ef;--mut:#9aa3b2;--line:#2c323d;--acc:#6ea3ff;--warn:#f0b24a;--bad:#ff8a80;--ok:#6fd49a;--soft:#1c2029;--noisy:#3a2f12}}
+*{box-sizing:border-box}
+body{margin:0;padding:16px;background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,Segoe UI,sans-serif;max-width:1500px;margin-inline:auto}
+h1{font-size:20px;margin:0 0 4px}h2{font-size:16px;margin:0 0 8px}
+section{border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:12px 0;background:var(--bg)}
+.remind{background:var(--soft)}.remind ul{margin:6px 0 0 18px;padding:0}
+label{display:inline-block;margin:4px 12px 4px 0}
+input[type=text],input[type=number],select{font:inherit;padding:3px 6px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--fg)}
+input[type=text]{width:340px;max-width:100%}input[type=number]{width:70px}
+button{font:inherit;padding:5px 12px;border:1px solid var(--acc);background:var(--acc);color:#fff;border-radius:5px;cursor:pointer}
+button.sec{background:transparent;color:var(--acc)}button:disabled{opacity:.45;cursor:default}
+.mut{color:var(--mut)}.bad{color:var(--bad)}.warn{color:var(--warn)}.ok{color:var(--ok)}
+.bar{height:14px;background:var(--soft);border:1px solid var(--line);border-radius:7px;overflow:hidden;margin:6px 0}
+.bar>div{height:100%;width:0;background:var(--acc)}
+table{border-collapse:collapse;font-size:12px}
+th,td{border:1px solid var(--line);padding:2px 6px;text-align:right;white-space:nowrap}
+th{background:var(--soft);position:sticky;top:0}
+td.l,th.l{text-align:left}
+tr.noisy td{background:var(--noisy)}tr.gh td{background:var(--soft);font-weight:600;text-align:left}
+.scroll{overflow:auto;max-height:70vh}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:2px 12px;margin:0}dt{color:var(--mut)}dd{margin:0;word-break:break-all}
+pre{white-space:pre-wrap;margin:6px 0 0;font-size:12px}
+</style>
+</head>
+<body>
+<h1>Image decode-speed test</h1>
+<div class="mut">Times <code>img.decode()</code> on detached <code>Image</code> objects, one fresh object URL per measurement. Runs entirely offline from <code>file://</code>.</div>
+
+<section class="remind" id="remind">
+<h2>Before you start</h2>
+<ul>
+<li>Plug the laptop in and set the operating system's power mode to <b>best performance</b> (or the nearest equivalent).</li>
+<li>Close all other apps and browser tabs. Keep this tab in the foreground.</li>
+<li>Do not touch the machine (mouse, keyboard, other windows) during the run.</li>
+</ul>
+</section>
+
+<section id="envSec">
+<h2>Environment</h2>
+<dl>
+<dt>userAgent</dt><dd id="envUA"></dd>
+<dt>hardwareConcurrency</dt><dd id="envCores"></dd>
+<dt>deviceMemory</dt><dd id="envMem"></dd>
+<dt>devicePixelRatio</dt><dd id="envDpr"></dd>
+<dt>Date</dt><dd id="envDate"></dd>
+<dt>Timer granularity</dt><dd id="envGran"></dd>
+</dl>
+<div style="margin-top:8px">
+<label>Hardware / OS <input type="text" id="fHw" size="40" placeholder="CPU model, operating system and version"></label>
+<label>Browser and version <input type="text" id="fBrowser"></label><br>
+<label>Power source <select id="fPower"><option value="">(choose)</option><option>plugged in</option><option>battery</option></select></label>
+<label>Power mode <input type="text" id="fMode" placeholder="e.g. Best performance"></label>
+</div>
+</section>
+
+<section id="pickSec">
+<h2>1. Pick the final_files folder</h2>
+<input type="file" id="picker" webkitdirectory multiple>
+<label><input type="checkbox" id="chkSha" checked> verify SHA-256 against the manifest (not timed)</label>
+<div id="manualWrap" style="display:none;margin-top:6px"><span class="warn">manifest.csv could not be read and fetching manifest.json is blocked on file://. Pick <code>speedtest/manifest.json</code> manually:</span>
+<input type="file" id="manualJson" accept=".json,application/json"></div>
+<div id="loadMsg" class="mut" style="margin-top:6px"></div>
+<div class="bar" id="loadBarWrap" style="display:none"><div id="loadBar"></div></div>
+<pre id="loadDetail"></pre>
+</section>
+
+<section id="supportSec" style="display:none">
+<h2>Format support check</h2>
+<div class="mut">Each format is tried once on its smallest file (result discarded). Unsupported formats are skipped.</div>
+<div id="supportOut"></div>
+</section>
+
+<section id="runSec">
+<h2>2. Run</h2>
+<label>Preset
+<select id="preset"><option value="quick">Quick (1 warm-up, 5 measured)</option><option value="default" selected>Default (2 warm-up, 15 measured)</option><option value="custom">Custom</option></select></label>
+<span id="customWrap" style="display:none"><label>warm-up <input type="number" id="cWarm" min="0" value="2"></label><label>measured <input type="number" id="cMeas" min="1" value="15"></label></span>
+<label>pause between files (ms) <input type="number" id="cPause" min="0" value="25"></label>
+<button id="btnStart" disabled>Start run</button>
+<button id="btnStop" class="sec" disabled>Stop (discards this run)</button>
+<div class="bar"><div id="runBar"></div></div>
+<div id="runMsg" class="mut">Not started.</div>
+<div id="runWarn" class="warn"></div>
+</section>
+
+<section id="resSec" style="display:none">
+<h2>3. Results</h2>
+<button id="btnRaw">Download raw timings CSV</button>
+<button id="btnSum">Download summary CSV</button>
+<div class="mut" style="margin:6px 0">Median, min, p90 (linear interpolation) and CV (sample standard deviation / mean) are computed from the measured rounds only. Rows with CV above 15% are shaded as noisy. "n/a" means there is no file or no usable measurement. Ratios are median / reference median.</div>
+<div class="scroll"><table id="sumTable"></table></div>
+</section>
+
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const GROUP_ORDER = ['lossy70', 'lossy85', 'lossless', 'recompress'];
+const IMAGE_ORDER = ['archives-ii', 'bush-official-portrait', 'chisinau-zoo-lake', 'summer-tanager', 'vscode-jxl-rs', 'coaf-logo'];
+const LABEL_ORDER = ['PNG-oxipng', 'JPEG-libjpeg-turbo-420', 'JPEG-libjpeg-turbo-444', 'JPEG-MozJPEG-420', 'JPEG-MozJPEG-default', 'WebP', 'AVIF', 'JXL', 'JXL-distance'];
+const MIME = { jpg: 'image/jpeg', png: 'image/png', webp: 'image/webp', avif: 'image/avif', jxl: 'image/jxl' };
+const FMT = { jpg: 'JPEG', png: 'PNG', webp: 'WebP', avif: 'AVIF', jxl: 'JXL' };
+const NOISY_CV = 0.15;
+const REQUIRED = ['file_name', 'group_folder', 'image', 'format', 'mode', 'setting', 'bytes', 'sha256', 'width', 'height', 'is_article_jpeg_baseline'];
+
+const S = { entries: [], run: null, rows: null, pending: null };
+let running = false, abortFlag = false;
+
+// ---------- helpers ----------
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const fmtN = (x, d) => (x === null || x === undefined || !isFinite(x)) ? 'n/a' : x.toFixed(d);
+const fmtTime = s => { s = Math.max(0, Math.round(s)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+function shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function median(a) { const s = a.slice().sort((x, y) => x - y), n = s.length; return n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2; }
+function pct(a, p) { const s = a.slice().sort((x, y) => x - y), h = (s.length - 1) * p, lo = Math.floor(h); return lo + 1 < s.length ? s[lo] + (h - lo) * (s[lo + 1] - s[lo]) : s[lo]; }
+function stats(a) {
+  const n = a.length, mean = a.reduce((x, y) => x + y, 0) / n;
+  const sd = n > 1 ? Math.sqrt(a.reduce((x, y) => x + (y - mean) * (y - mean), 0) / (n - 1)) : null;
+  return { n, mean, med: median(a), min: Math.min(...a), p90: pct(a, 0.9), cv: (sd !== null && mean > 0) ? sd / mean : null };
+}
+function csvCell(v) { v = (v === null || v === undefined) ? '' : String(v); return /[",\r\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
+const toCSV = rows => rows.map(r => r.map(csvCell).join(',')).join('\r\n') + '\r\n';
+function parseCSV(text) {
+  if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
+  const rows = []; let row = [], f = '', q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) { if (c === '"') { if (text[i + 1] === '"') { f += '"'; i++; } else q = false; } else f += c; }
+    else if (c === '"') q = true;
+    else if (c === ',') { row.push(f); f = ''; }
+    else if (c === '\n' || c === '\r') { if (c === '\r' && text[i + 1] === '\n') i++; row.push(f); f = ''; if (row.length > 1 || row[0] !== '') rows.push(row); row = []; }
+    else f += c;
+  }
+  if (f !== '' || row.length) { row.push(f); rows.push(row); }
+  const h = rows.shift() || [];
+  return rows.map(r => Object.fromEntries(h.map((k, i) => [k, r[i] === undefined ? '' : r[i]])));
+}
+function normalizeManifest(rows) {
+  if (!Array.isArray(rows)) { if (rows && Array.isArray(rows.files)) rows = rows.files; else throw new Error('manifest is not a list of rows'); }
+  if (!rows.length) throw new Error('manifest has no rows');
+  const miss = REQUIRED.filter(k => !(k in rows[0]));
+  if (miss.length) throw new Error('manifest lacks columns: ' + miss.join(', '));
+  return rows.map(r => {
+    const m = Object.assign({}, r);
+    m.bytes = Number(r.bytes); m.width = Number(r.width); m.height = Number(r.height);
+    m.is_article_jpeg_baseline = String(r.is_article_jpeg_baseline).toLowerCase() === 'true';
+    if (!isFinite(m.bytes) || !isFinite(m.width) || !isFinite(m.height)) throw new Error('non-numeric bytes/width/height in ' + r.file_name);
+    return m;
+  });
+}
+function jpegType(u8) {
+  let o = 2;
+  while (o + 4 < u8.length) {
+    if (u8[o] !== 0xFF) { o++; continue; }
+    const m = u8[o + 1];
+    if (m === 0xFF) { o++; continue; }
+    if (m === 0xD8 || m === 0x01 || m === 0x00 || (m >= 0xD0 && m <= 0xD7)) { o += 2; continue; }
+    if (m >= 0xC0 && m <= 0xCF && m !== 0xC4 && m !== 0xC8 && m !== 0xCC)
+      return m === 0xC0 ? 'baseline (SOF0)' : m === 0xC1 ? 'extended sequential (SOF1)' : m === 0xC2 ? 'progressive (SOF2)' : 'other (SOF' + (m - 0xC0) + ')';
+    o += 2 + ((u8[o + 2] << 8) | u8[o + 3]);
+  }
+  return 'unknown';
+}
+function browserFamily(ua) { return /Firefox\//.test(ua) ? 'firefox' : /Edg\//.test(ua) ? 'edge' : /Chrome\//.test(ua) ? 'chrome' : /Safari\//.test(ua) ? 'safari' : 'browser'; }
+function browserGuess(ua) {
+  let m;
+  if ((m = ua.match(/Firefox\/([\d.]+)/))) return 'Firefox ' + m[1];
+  if ((m = ua.match(/Edg\/([\d.]+)/))) return 'Edge ' + m[1];
+  if ((m = ua.match(/Chrome\/([\d.]+)/))) return 'Chrome ' + m[1];
+  if ((m = ua.match(/Version\/([\d.]+).*Safari\//))) return 'Safari ' + m[1];
+  return '';
+}
+function timerGranularity() {
+  let min = Infinity; const cap = performance.now() + 300;
+  while (performance.now() < cap) {
+    const a = performance.now(); let b = a, k = 0;
+    while (b === a && k < 5e6) { b = performance.now(); k++; }
+    if (b > a && b - a < min) min = b - a;
+  }
+  return isFinite(min) ? min : null;
+}
+
+// ---------- environment ----------
+const GRAN = timerGranularity();
+(function envInit() {
+  $('envUA').textContent = navigator.userAgent;
+  $('envCores').textContent = navigator.hardwareConcurrency || 'not available';
+  $('envMem').textContent = navigator.deviceMemory ? navigator.deviceMemory + ' GB (browser-rounded)' : 'not available in this browser';
+  $('envDpr').textContent = window.devicePixelRatio;
+  $('envDate').textContent = new Date().toString();
+  $('envGran').textContent = GRAN === null ? 'could not be measured' : '≈ ' + GRAN.toFixed(4) + ' ms smallest observed step of performance.now() (timings are quantised to this)';
+  $('fBrowser').value = browserGuess(navigator.userAgent);
+})();
+
+// ---------- loading ----------
+function setLoad(msg, frac) {
+  $('loadMsg').textContent = msg;
+  const w = $('loadBarWrap'); w.style.display = frac === null ? 'none' : '';
+  if (frac !== null) $('loadBar').style.width = (frac * 100).toFixed(1) + '%';
+}
+$('picker').addEventListener('change', e => loadFromFiles(Array.from(e.target.files)).catch(err => { setLoad('Load failed: ' + err.message, null); console.error(err); }));
+$('manualJson').addEventListener('change', async e => {
+  try {
+    const f = e.target.files[0]; if (!f || !S.pending) return;
+    const rows = normalizeManifest(JSON.parse(await f.text()));
+    $('manualWrap').style.display = 'none';
+    await finishLoad(rows, 'manifest.json (picked manually)', S.pending);
+  } catch (err) { setLoad('manifest.json could not be read: ' + err.message, null); }
+});
+
+async function loadFromFiles(files) {
+  if (running) return;
+  S.entries = []; S.run = null; S.rows = null; $('resSec').style.display = 'none'; $('supportSec').style.display = 'none';
+  $('btnStart').disabled = true; $('loadDetail').textContent = '';
+  const byPath = new Map(); let mf = null, best = 1e9;
+  for (const f of files) {
+    const p = (f.webkitRelativePath || f.name).split('/');
+    if (p[p.length - 1].toLowerCase() === 'manifest.csv' && p.length < best) { mf = f; best = p.length; }
+    if (p.length >= 2) byPath.set(p.slice(-2).join('/'), f);
+  }
+  let rows = null, src = '', why = [];
+  if (mf) { try { rows = normalizeManifest(parseCSV(await mf.text())); src = 'manifest.csv from the picked folder'; } catch (e) { why.push('manifest.csv: ' + e.message); } }
+  else why.push('manifest.csv not found in the picked folder');
+  if (!rows) {
+    try {
+      const r = await fetch('manifest.json'); if (!r.ok) throw new Error('HTTP ' + r.status);
+      rows = normalizeManifest(await r.json()); src = 'speedtest/manifest.json (fetched)';
+    } catch (e) { why.push('manifest.json fetch: ' + e.message); }
+  }
+  if (!rows) {
+    S.pending = byPath; $('manualWrap').style.display = '';
+    setLoad('Could not read the manifest. ' + why.join(' | '), null); return;
+  }
+  await finishLoad(rows, src, byPath);
+}
+
+async function finishLoad(rows, src, byPath) {
+  const wantSha = $('chkSha').checked && window.crypto && crypto.subtle;
+  const notes = [];
+  if ($('chkSha').checked && !wantSha) notes.push('SHA-256 check skipped: crypto.subtle is not available here.');
+  S.entries = rows.map(m => {
+    const ext = m.file_name.split('.').pop().toLowerCase();
+    return { m, key: m.group_folder + '/' + m.file_name, ext, mime: MIME[ext] || '', label: m.file_name.split('__')[1] || m.format,
+      file: byPath.get(m.group_folder + '/' + m.file_name) || null, buf: null, status: 'ok', jpegType: '', times: [], errs: [], ok: 0, dead: false };
+  });
+  let i = 0;
+  for (const e of S.entries) {
+    i++; setLoad('Reading files ' + i + '/' + S.entries.length + ' (manifest: ' + src + ')', i / S.entries.length);
+    if (!e.mime) { e.status = 'unknown_extension'; continue; }
+    if (!e.file) { e.status = 'missing_file'; continue; }
+    try {
+      const buf = await e.file.arrayBuffer();
+      if (buf.byteLength !== e.m.bytes) { e.status = 'size_mismatch'; e.detail = 'file ' + buf.byteLength + ' vs manifest ' + e.m.bytes; continue; }
+      if (wantSha) {
+        const h = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', buf))).map(b => b.toString(16).padStart(2, '0')).join('');
+        if (h !== String(e.m.sha256).toLowerCase()) { e.status = 'sha_mismatch'; continue; }
+      }
+      e.buf = buf; if (e.ext === 'jpg') e.jpegType = jpegType(new Uint8Array(buf));
+    } catch (err) { e.status = 'read_error'; e.detail = err.message; }
+  }
+  const cnt = {}; S.entries.forEach(e => cnt[e.status] = (cnt[e.status] || 0) + 1);
+  const bad = S.entries.filter(e => e.status !== 'ok');
+  $('loadDetail').textContent = notes.concat(bad.map(e => e.status + ': ' + e.key + (e.detail ? ' (' + e.detail + ')' : ''))).join('\n');
+  setLoad('Manifest: ' + src + '. ' + S.entries.length + ' rows, ' + (cnt.ok || 0) + ' files read and verified' + (bad.length ? ', ' + bad.length + ' excluded (listed below)' : '') + '.', null);
+  await probeSupport();
+  updateStartState();
+}
+
+async function decodeOnce(e) {
+  const blob = new Blob([e.buf], { type: e.mime });
+  const url = URL.createObjectURL(blob);       // fresh URL every call, never reused
+  const img = new Image();                      // detached, never added to the DOM
+  let ms = null, err = null;
+  try {
+    const t0 = performance.now();
+    img.src = url;
+    await img.decode();
+    ms = performance.now() - t0;
+  } catch (x) { err = String((x && x.message) || x); }
+  img.removeAttribute('src');
+  URL.revokeObjectURL(url);
+  return { ms, err };
+}
+
+async function probeSupport() {
+  const byExt = {};
+  S.entries.filter(e => e.status === 'ok').forEach(e => { (byExt[e.ext] = byExt[e.ext] || []).push(e); });
+  let html = '<table><tr><th class="l">format</th><th>files</th><th class="l">result</th></tr>';
+  for (const ext of Object.keys(byExt)) {
+    const list = byExt[ext], small = list.slice().sort((a, b) => a.m.bytes - b.m.bytes)[0];
+    const r = await decodeOnce(small);
+    const okf = r.err === null;
+    if (!okf) list.forEach(e => { e.status = 'unsupported'; e.detail = r.err; });
+    html += '<tr><td class="l">' + FMT[ext] + '</td><td>' + list.length + '</td><td class="l ' + (okf ? 'ok' : 'bad') + '">' + (okf ? 'decodes' : 'NOT supported by this browser, ' + list.length + ' files will be skipped (' + esc(r.err) + ')') + '</td></tr>';
+    await sleep(10);
+  }
+  $('supportOut').innerHTML = html + '</table>';
+  $('supportSec').style.display = '';
+}
+
+function updateStartState() {
+  const n = S.entries.filter(e => e.status === 'ok').length;
+  $('btnStart').disabled = running || n === 0;
+}
+
+// ---------- run ----------
+$('preset').addEventListener('change', () => { $('customWrap').style.display = $('preset').value === 'custom' ? '' : 'none'; });
+$('btnStop').addEventListener('click', () => { abortFlag = true; });
+$('btnStart').addEventListener('click', () => startRun().catch(err => { running = false; $('runMsg').textContent = 'Run failed: ' + err.message; console.error(err); lockUI(false); }));
+document.addEventListener('visibilitychange', () => { if (running && document.hidden && S.run) S.run.hidden++; });
+
+function lockUI(on) {
+  running = on;
+  ['picker', 'preset', 'cWarm', 'cMeas', 'cPause', 'chkSha', 'fHw', 'fBrowser', 'fPower', 'fMode'].forEach(id => $(id).disabled = on);
+  $('btnStop').disabled = !on; $('btnStart').disabled = on || !S.entries.some(e => e.status === 'ok');
+}
+
+async function startRun() {
+  if (running) return;
+  if (!$('fHw').value.trim()) { $('runWarn').textContent = 'Fill in the hardware and operating system first (for example: CPU model, OS and version).'; return; }
+  if (!$('fPower').value) { $('runWarn').textContent = 'Choose the power source (plugged in or battery) first.'; return; }
+  $('runWarn').textContent = '';
+  const p = $('preset').value;
+  const cfg = p === 'quick' ? { warm: 1, meas: 5, name: 'quick' } : p === 'default' ? { warm: 2, meas: 15, name: 'default' }
+    : { warm: Math.max(0, parseInt($('cWarm').value) || 0), meas: Math.max(1, parseInt($('cMeas').value) || 1), name: 'custom' };
+  cfg.pause = Math.max(0, parseInt($('cPause').value) || 0);
+  const list = S.entries.filter(e => e.status === 'ok');
+  list.forEach(e => { e.times = []; e.errs = []; e.ok = 0; e.dead = false; });
+  const ua = navigator.userAgent;
+  S.run = { cfg, start: new Date(), hidden: 0, gran: GRAN, ua, browser: $('fBrowser').value.trim() || browserGuess(ua) || 'unknown',
+    hw: $('fHw').value.trim(), power: $('fPower').value, mode: $('fMode').value.trim(), cores: navigator.hardwareConcurrency || '',
+    mem: navigator.deviceMemory || '', dpr: window.devicePixelRatio, complete: false };
+  $('resSec').style.display = 'none';
+  abortFlag = false; lockUI(true);
+  const rounds = cfg.warm + cfg.meas, total = rounds * list.length;
+  let done = 0, lastUI = 0; const t0 = performance.now();
+  outer:
+  for (let r = 0; r < rounds; r++) {
+    for (const e of shuffle(list.filter(x => !x.dead))) {
+      if (abortFlag) break outer;
+      const res = await decodeOnce(e);
+      if (res.err !== null) { e.errs.push(res.err); if (e.errs.length >= 3 && e.ok === 0) e.dead = true; }
+      else { e.ok++; if (r >= cfg.warm) e.times.push({ round: r - cfg.warm + 1, ms: res.ms }); }
+      done++;
+      const now = performance.now();
+      if (now - lastUI > 250 || done === total) {
+        lastUI = now;
+        $('runBar').style.width = (done / total * 100).toFixed(1) + '%';
+        const el = (now - t0) / 1000, left = el / done * (total - done);
+        $('runMsg').textContent = (r < cfg.warm ? 'Warm-up round ' + (r + 1) + '/' + cfg.warm : 'Measured round ' + (r - cfg.warm + 1) + '/' + cfg.meas) +
+          ' · ' + done + '/' + total + ' decodes · elapsed ' + fmtTime(el) + ' · estimated time left ' + fmtTime(left);
+      }
+      await sleep(cfg.pause);
+    }
+  }
+  lockUI(false);
+  if (abortFlag) { S.run = null; $('runMsg').textContent = 'Run stopped. Its data was discarded and cannot be exported.'; return; }
+  S.run.complete = true; S.run.end = new Date();
+  $('runBar').style.width = '100%';
+  $('runMsg').textContent = 'Run finished in ' + fmtTime((performance.now() - t0) / 1000) + '.';
+  $('runWarn').textContent = S.run.hidden ? 'WARNING: this tab was hidden ' + S.run.hidden + ' time(s) during the run. Browsers throttle hidden tabs; do not trust this run.' : '';
+  buildSummary(); renderSummary();
+}
+
+// ---------- summary ----------
+function buildSummary() {
+  const gran = S.run.gran;
+  const rows = S.entries.map(e => {
+    const t = e.times.map(x => x.ms), st = t.length ? stats(t) : null, flags = [];
+    if (e.status !== 'ok') flags.push(e.status);
+    if (e.dead) flags.push('not_run_decode_errors');
+    else if (e.errs.length) flags.push('decode_errors=' + e.errs.length);
+    if (st && st.cv !== null && st.cv > NOISY_CV) flags.push('noisy');
+    if (st && st.med <= 0) flags.push('median_not_positive');
+    if (st && gran && st.med < 10 * gran) flags.push('timer_coarse');
+    const usable = st && st.med > 0;
+    return { e, st, usable, flags, mp: e.m.width * e.m.height / 1e6 };
+  });
+  const find = (r, label, setting) => rows.find(x => x.e.m.group_folder === r.e.m.group_folder && x.e.m.image === r.e.m.image && x.e.label === label && (setting === undefined || x.e.m.setting === setting));
+  const ratio = (r, ref) => (r.usable && ref && ref.usable) ? r.st.med / ref.st.med : null;
+  rows.forEach(r => {
+    const m = r.e.m, g = m.group_folder, isRecomp = g === 'recompress';
+    r.lib = isRecomp ? null : find(r, 'JPEG-libjpeg-turbo-420');
+    r.moz = isRecomp ? null : find(r, 'JPEG-MozJPEG-420');
+    r.lib444 = isRecomp ? null : find(r, 'JPEG-libjpeg-turbo-444');
+    r.mozdef = isRecomp ? null : find(r, 'JPEG-MozJPEG-default');
+    r.base = isRecomp ? null : rows.find(x => x.e.m.group_folder === g && x.e.m.image === m.image && x.e.m.is_article_jpeg_baseline);
+    r.webp = isRecomp ? null : find(r, 'WebP');
+    r.avif = isRecomp ? null : find(r, 'AVIF');
+    r.png = g === 'lossless' ? find(r, 'PNG-oxipng') : null;
+    r.orig = (isRecomp && r.e.label.indexOf('JXL-recompressed-from-') === 0) ? find(r, r.e.label.replace('JXL-recompressed-from-', 'JPEG-'), m.setting + '-original') : null;
+    r.rLib = ratio(r, r.lib); r.rMoz = ratio(r, r.moz); r.rBase = ratio(r, r.base); r.rWebp = ratio(r, r.webp); r.rAvif = ratio(r, r.avif);
+    r.rPng = ratio(r, r.png); r.rOrig = ratio(r, r.orig); r.rLib444 = ratio(r, r.lib444); r.rMozDef = ratio(r, r.mozdef);
+  });
+  const oi = (arr, v) => { const i = arr.indexOf(v); return i < 0 ? 99 : i; };
+  rows.sort((a, b) => oi(GROUP_ORDER, a.e.m.group_folder) - oi(GROUP_ORDER, b.e.m.group_folder) || oi(IMAGE_ORDER, a.e.m.image) - oi(IMAGE_ORDER, b.e.m.image) ||
+    oi(LABEL_ORDER, a.e.label) - oi(LABEL_ORDER, b.e.label) || a.e.label.localeCompare(b.e.label) || a.e.m.setting.localeCompare(b.e.m.setting));
+  S.rows = rows;
+}
+const tl = r => r ? (r.e.jpegType || '') : '';
+const cell = (r, x) => (r && r.usable) ? fmtN(x, 3) : 'n/a';
+
+function renderSummary() {
+  const rows = S.rows;
+  const cols = [
+    ['image', 'image', 'l', r => r.e.m.image], ['format', 'format', 'l', r => r.e.label], ['setting', 'setting', 'l', r => r.e.m.setting],
+    ['bytes', 'bytes', '', r => r.e.m.bytes], ['dims', 'w×h', '', r => r.e.m.width + '×' + r.e.m.height],
+    ['jt', 'JPEG type', 'l', r => r.e.jpegType || ''], ['n', 'n', '', r => r.st ? r.st.n : 0],
+    ['med', 'median ms', '', r => cell(r, r.usable ? r.st.med : null)], ['min', 'min ms', '', r => r.st ? fmtN(r.st.min, 3) : 'n/a'],
+    ['p90', 'p90 ms', '', r => r.st ? fmtN(r.st.p90, 3) : 'n/a'], ['cv', 'CV %', '', r => (r.st && r.st.cv !== null) ? fmtN(r.st.cv * 100, 1) : 'n/a'],
+    ['mpx', 'ms/MP', '', r => r.usable ? fmtN(r.st.med / r.mp, 2) : 'n/a'],
+    ['lib', 'vs libjpeg-turbo', '', r => fmtN(r.rLib, 3) + (r.rLib !== null ? ' [' + (tl(r.lib).split(' ')[0]) + ']' : '')],
+    ['moz', 'vs MozJPEG', '', r => fmtN(r.rMoz, 3) + (r.rMoz !== null ? ' [' + (tl(r.moz).split(' ')[0]) + ']' : '')],
+    ['base', 'vs article baseline', '', r => r.rBase !== null ? fmtN(r.rBase, 3) + ' (' + (r.base.e.label.indexOf('Moz') >= 0 ? 'Moz' : 'libjpeg') + ')' : 'n/a'],
+    ['webp', 'vs WebP', '', r => fmtN(r.rWebp, 3)], ['avif', 'vs AVIF', '', r => fmtN(r.rAvif, 3)],
+    ['png', 'vs PNG', '', r => fmtN(r.rPng, 3)], ['orig', 'vs orig JPEG', '', r => r.rOrig !== null ? fmtN(r.rOrig, 3) + ' [' + tl(r.orig).split(' ')[0] + ']' : 'n/a'],
+    ['flags', 'flags', 'l', r => r.flags.join(' ')]
+  ];
+  let h = '<tr>' + cols.map(c => '<th class="' + c[2] + '">' + esc(c[1]) + '</th>').join('') + '</tr>', lastG = '';
+  for (const r of rows) {
+    if (r.e.m.group_folder !== lastG) { lastG = r.e.m.group_folder; h += '<tr class="gh"><td colspan="' + cols.length + '">' + esc(lastG) + '</td></tr>'; }
+    const isBase = r.e.m.is_article_jpeg_baseline;
+    h += '<tr class="' + (r.flags.indexOf('noisy') >= 0 ? 'noisy' : '') + '">' + cols.map(c => {
+      let v = c[3](r); if (c[0] === 'format' && isBase) v += ' ★';
+      return '<td class="' + c[2] + '">' + esc(v) + '</td>';
+    }).join('') + '</tr>';
+  }
+  $('sumTable').innerHTML = h; $('resSec').style.display = '';
+}
+
+// ---------- export ----------
+function stamp() {
+  const d = S.run.start, p = n => String(n).padStart(2, '0');
+  return browserFamily(S.run.ua) + '_' + d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) + '_' + p(d.getHours()) + p(d.getMinutes()) + '_' + S.run.cfg.name;
+}
+function download(name, text) {
+  const url = URL.createObjectURL(new Blob(['﻿' + text], { type: 'text/csv;charset=utf-8' }));
+  const a = document.createElement('a'); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
+}
+$('btnRaw').addEventListener('click', () => {
+  if (!S.run || !S.run.complete) return;
+  const out = [['browser', 'ua', 'file_name', 'group', 'image', 'format', 'setting', 'bytes', 'width', 'height', 'round', 'ms']];
+  for (const e of S.entries) for (const t of e.times)
+    out.push([S.run.browser, S.run.ua, e.m.file_name, e.m.group_folder, e.m.image, e.label, e.m.setting, e.m.bytes, e.m.width, e.m.height, t.round, t.ms.toFixed(4)]);
+  download('decode_raw_' + stamp() + '.csv', toCSV(out));
+});
+$('btnSum').addEventListener('click', () => {
+  if (!S.run || !S.run.complete || !S.rows) return;
+  const R = S.run, na = v => (v === null || v === undefined) ? 'n/a' : v;
+  const f3 = v => v === null ? 'n/a' : v.toFixed(3);
+  const out = [['browser', 'ua', 'hardware', 'power_source', 'power_mode', 'run_start', 'warmup_rounds', 'measured_rounds', 'timer_granularity_ms', 'tab_hidden_events',
+    'group', 'image', 'format', 'setting', 'file_name', 'bytes', 'width', 'height', 'own_jpeg_type', 'is_article_jpeg_baseline', 'n_ok', 'decode_errors',
+    'median_ms', 'min_ms', 'p90_ms', 'cv_pct', 'ms_per_megapixel', 'flags',
+    'ratio_vs_libjpeg_turbo_420', 'libjpeg_turbo_420_jpeg_type', 'ratio_vs_mozjpeg_420', 'mozjpeg_420_jpeg_type',
+    'ratio_vs_article_baseline', 'article_baseline_format', 'article_baseline_jpeg_type', 'ratio_vs_webp', 'ratio_vs_avif', 'ratio_vs_png',
+    'ratio_vs_original_jpeg', 'original_jpeg_type', 'ratio_vs_libjpeg_turbo_444', 'ratio_vs_mozjpeg_default']];
+  for (const r of S.rows) {
+    const m = r.e.m, st = r.st;
+    out.push([R.browser, R.ua, R.hw, R.power, R.mode, R.start.toISOString(), R.cfg.warm, R.cfg.meas, R.gran === null ? 'n/a' : R.gran, R.hidden,
+      m.group_folder, m.image, r.e.label, m.setting, m.file_name, m.bytes, m.width, m.height, r.e.jpegType || 'n/a', m.is_article_jpeg_baseline, st ? st.n : 0, r.e.errs.length,
+      r.usable ? st.med.toFixed(4) : 'n/a', st ? st.min.toFixed(4) : 'n/a', st ? st.p90.toFixed(4) : 'n/a', (st && st.cv !== null) ? (st.cv * 100).toFixed(2) : 'n/a',
+      r.usable ? (st.med / r.mp).toFixed(3) : 'n/a', r.flags.join(' '),
+      f3(r.rLib), r.lib ? na(r.lib.e.jpegType) : 'n/a', f3(r.rMoz), r.moz ? na(r.moz.e.jpegType) : 'n/a',
+      f3(r.rBase), r.base ? r.base.e.label : 'n/a', r.base ? na(r.base.e.jpegType) : 'n/a', f3(r.rWebp), f3(r.rAvif), f3(r.rPng),
+      f3(r.rOrig), r.orig ? na(r.orig.e.jpegType) : 'n/a', f3(r.rLib444), f3(r.rMozDef)]);
+  }
+  download('decode_summary_' + stamp() + '.csv', toCSV(out));
+});
+</script>
+</body>
+</html>

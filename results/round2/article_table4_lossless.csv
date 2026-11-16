@@ -1,0 +1,7 @@
+image,article_name,working_png,working_png_pct_of_optimised_png,optimised_png,webp,webp_pct_of_optimised_png,webp_status,avif,avif_pct_of_optimised_png,avif_status,jxl,jxl_pct_of_optimised_png,jxl_status
+archives-ii.tif,building,4669448,112,4185508,3694592,88,IDENTICAL,4075190,97,IDENTICAL,3485465,83,IDENTICAL
+bush-official-portrait.tif,portrait,5600578,109,5130478,4985720,97,IDENTICAL,5105598,100,IDENTICAL,4718931,92,IDENTICAL
+chisinau-zoo-lake.tif,lake,6033783,103,5846244,4821160,82,IDENTICAL,6597174,113,IDENTICAL,4734882,81,IDENTICAL
+coaf-logo.png,logo,14206,215,6622,5518,83,RGB_UNDER_ALPHA0_DIFFERS,15622,236,IDENTICAL,5136,78,IDENTICAL
+summer-tanager.tif,bird,3214871,111,2888161,2222216,77,IDENTICAL,3071047,106,IDENTICAL,2202941,76,IDENTICAL
+vscode-jxl-rs.png,screenshot,235612,173,136172,77882,57,IDENTICAL,394771,290,IDENTICAL,165312,121,IDENTICAL

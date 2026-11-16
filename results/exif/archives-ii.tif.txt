@@ -1,0 +1,114 @@
+﻿[ExifTool]      ExifToolVersion                 : 13.59
+[System]        FileName                        : archives-ii.tif
+[System]        Directory                       : sources
+[System]        FileSize                        : 227 MB
+[System]        ZoneIdentifier                  : Exists
+[System]        FileModifyDate                  : 2026:10:16 00:05:40+02:00
+[System]        FileAccessDate                  : 2026:10:16 02:04:24+02:00
+[System]        FileCreateDate                  : 2026:10:16 00:06:02+02:00
+[System]        FilePermissions                 : -rw-rw-rw-
+[File]          FileType                        : TIFF
+[File]          FileTypeExtension               : tif
+[File]          MIMEType                        : image/tiff
+[File]          ExifByteOrder                   : Big-endian (Motorola, MM)
+[File]          CurrentIPTCDigest               : b0d349b4aae3b239245216594cc78f23
+[IFD0]          SubfileType                     : Full-resolution image
+[IFD0]          ImageWidth                      : 6955
+[IFD0]          ImageHeight                     : 5440
+[IFD0]          BitsPerSample                   : 16 16 16
+[IFD0]          Compression                     : Uncompressed
+[IFD0]          PhotometricInterpretation       : RGB
+[IFD0]          ImageDescription                : "Archives II," a newer research and storage facility of the National Archives, in the Maryland suburbs of Washington.
+[IFD0]          StripOffsets                    : 27392
+[IFD0]          Orientation                     : Horizontal (normal)
+[IFD0]          SamplesPerPixel                 : 3
+[IFD0]          RowsPerStrip                    : 5440
+[IFD0]          StripByteCounts                 : 227011200
+[IFD0]          XResolution                     : 300
+[IFD0]          YResolution                     : 300
+[IFD0]          PlanarConfiguration             : Chunky
+[IFD0]          ResolutionUnit                  : inches
+[IFD0]          Software                        : Adobe Photoshop CS5 Macintosh
+[IFD0]          ModifyDate                      : 2011:08:09 16:23:00
+[IFD0]          Artist                          : Carol M. Highsmith: Photographer
+[XMP-x]         XMPToolkit                      : Adobe XMP Core 5.0-c060 61.134777, 2010/02/12-17:32:00
+[XMP-xmp]       CreateDate                      : 2011:08:01 15:05:22-04:00
+[XMP-xmp]       ModifyDate                      : 2011:08:09 16:23-04:00
+[XMP-xmp]       MetadataDate                    : 2011:08:09 16:23-04:00
+[XMP-xmp]       CreatorTool                     : Adobe Photoshop CS5 Macintosh
+[XMP-dc]        Format                          : image/tiff
+[XMP-dc]        Description                     : "Archives II," a newer research and storage facility of the National Archives, in the Maryland suburbs of Washington.
+[XMP-dc]        Creator                         : Carol M. Highsmith: Photographer
+[XMP-dc]        Subject                         : Carol M. Highsmith, America, National Archives, Maryland, Archives II
+[XMP-xmpMM]     InstanceID                      : xmp.iid:D8610B7A00216811ACAFD8B2FC34CB2A
+[XMP-xmpMM]     DocumentID                      : xmp.did:FB32086F3E2568118DBBFA526FA5A2DE
+[XMP-xmpMM]     OriginalDocumentID              : xmp.did:FB32086F3E2568118DBBFA526FA5A2DE
+[XMP-xmpMM]     HistoryAction                   : created, saved, saved, saved
+[XMP-xmpMM]     HistoryInstanceID               : xmp.iid:FB32086F3E2568118DBBFA526FA5A2DE, xmp.iid:6B1F7037C32168118C14A15E46FE398C, xmp.iid:A40ADAEEF82068118083A3F4F85002A4, xmp.iid:D8610B7A00216811ACAFD8B2FC34CB2A
+[XMP-xmpMM]     HistoryWhen                     : 2011:08:01 15:05:22-04:00, 2011:08:06 20:38:01-04:00, 2011:08:08 08:57:32-04:00, 2011:08:09 16:23-04:00
+[XMP-xmpMM]     HistorySoftwareAgent            : Adobe Photoshop CS5 Macintosh, Adobe Photoshop Camera Raw 6.4.1, Adobe Photoshop Camera Raw 6.4.1, Adobe Photoshop CS5 Macintosh
+[XMP-xmpMM]     HistoryChanged                  : /metadata, /metadata, /
+[XMP-photoshop] Country                         : United States
+[XMP-photoshop] City                            : College Park
+[XMP-photoshop] State                           : Maryland
+[XMP-photoshop] ColorMode                       : RGB
+[XMP-photoshop] ICCProfileName                  : Adobe RGB (1998)
+[IPTC]          CodedCharacterSet               : UTF8
+[IPTC]          CodedCharacterSet               : UTF8
+[IPTC]          ApplicationRecordVersion        : 4
+[IPTC]          Caption-Abstract                : "Archives II," a newer research and storage facility of the National Archives, in the Maryland suburbs of Washington.
+[IPTC]          By-line                         : Carol M. Highsmith: Photographer
+[IPTC]          City                            : College Park
+[IPTC]          Province-State                  : Maryland
+[IPTC]          Country-PrimaryLocationName     : United States
+[IPTC]          Keywords                        : Carol M. Highsmith, America, National Archives, Maryland, Archives II
+[Photoshop]     IPTCDigest                      : b0d349b4aae3b239245216594cc78f23
+[Photoshop]     XResolution                     : 300
+[Photoshop]     DisplayedUnitsX                 : inches
+[Photoshop]     YResolution                     : 300
+[Photoshop]     DisplayedUnitsY                 : inches
+[Photoshop]     PrintStyle                      : Centered
+[Photoshop]     PrintPosition                   : 0 0
+[Photoshop]     PrintScale                      : 1
+[Photoshop]     GlobalAngle                     : 120
+[Photoshop]     GlobalAltitude                  : 30
+[Photoshop]     URL_List                        : 
+[Photoshop]     SlicesGroupName                 : LS-HS503-3652
+[Photoshop]     NumSlices                       : 1
+[Photoshop]     PixelAspectRatio                : 1
+[Photoshop]     PhotoshopThumbnail              : (Binary data 7232 bytes, use -b option to extract)
+[Photoshop]     HasRealMergedData               : Yes
+[Photoshop]     WriterName                      : Adobe Photoshop
+[Photoshop]     ReaderName                      : Adobe Photoshop CS5
+[ExifIFD]       ExifVersion                     : 0221
+[ExifIFD]       ColorSpace                      : Uncalibrated
+[ExifIFD]       ExifImageWidth                  : 6955
+[ExifIFD]       ExifImageHeight                 : 5440
+[ICC-header]    ProfileCMMType                  : Adobe Systems Inc.
+[ICC-header]    ProfileVersion                  : 2.1.0
+[ICC-header]    ProfileClass                    : Display Device Profile
+[ICC-header]    ColorSpaceData                  : RGB
+[ICC-header]    ProfileConnectionSpace          : XYZ
+[ICC-header]    ProfileDateTime                 : 2000:08:11 19:51:59
+[ICC-header]    ProfileFileSignature            : acsp
+[ICC-header]    PrimaryPlatform                 : Apple Computer Inc.
+[ICC-header]    CMMFlags                        : Not Embedded, Independent
+[ICC-header]    DeviceManufacturer              : none
+[ICC-header]    DeviceModel                     : 
+[ICC-header]    DeviceAttributes                : Reflective, Glossy, Positive, Color
+[ICC-header]    RenderingIntent                 : Perceptual
+[ICC-header]    ConnectionSpaceIlluminant       : 0.9642 1 0.82491
+[ICC-header]    ProfileCreator                  : Adobe Systems Inc.
+[ICC-header]    ProfileID                       : 0
+[ICC_Profile]   ProfileCopyright                : Copyright 2000 Adobe Systems Incorporated
+[ICC_Profile]   ProfileDescription              : Adobe RGB (1998)
+[ICC_Profile]   MediaWhitePoint                 : 0.95045 1 1.08905
+[ICC_Profile]   MediaBlackPoint                 : 0 0 0
+[ICC_Profile]   RedTRC                          : (Binary data 14 bytes, use -b option to extract)
+[ICC_Profile]   GreenTRC                        : (Binary data 14 bytes, use -b option to extract)
+[ICC_Profile]   BlueTRC                         : (Binary data 14 bytes, use -b option to extract)
+[ICC_Profile]   RedMatrixColumn                 : 0.60974 0.31111 0.01947
+[ICC_Profile]   GreenMatrixColumn               : 0.20528 0.62567 0.06087
+[ICC_Profile]   BlueMatrixColumn                : 0.14919 0.06322 0.74457
+[Composite]     ImageSize                       : 6955x5440
+[Composite]     Megapixels                      : 37.8

@@ -1,0 +1,10 @@
+## 8. What happened on the awkward cells (observations only)
+
+These notes describe the measurements in the tables above; I did not test any of the causes, and anything marked "unverified" is a guess.
+
+- **Part A:** all 16 restored JPEGs were byte-identical to their originals (0 FAILED). The savings in the table range from 9.49 % to 20.60 % across the 16 files; with 4 images, 2 encoders and 2 qualities this says nothing general.
+- **vscode-jxl-rs.png, target 85:** libjpeg-turbo JPEG and WebP **did not reach** 85 (as at target 70 in round 1): JPEG's best score was 64.89 at q99 (q100 gave 64.86), WebP's was 59.97 at q97 (q99 59.75, q100 59.66). MozJPEG (q91, 84.01), AVIF (q62, 85.96) and JXL (q81, 85.29) reached it.
+- **vscode-jxl-rs.png, MozJPEG at target 70:** **not reached**. The score is not smooth in the quality setting: q88 scored 68.39, q89 68.93, q90 83.04, q91 84.01, q94 86.86. There is no integer quality between q89 (68.93) and q90 (83.04), so no integer setting lands in 69 to 71; the closest tried (q89, 68.93) is reported. Reading the files back (section 11) shows q89 is 4:2:2 and q90 is 4:4:4, which is consistent with the jump; I did not isolate it further. The libjpeg-turbo 4:4:4 extra reached both targets on this image (section 5.1).
+- **summer-tanager.png, WebP at target 85:** **not reached**. q94 scored 83.82 and q95 scored 86.10; adjacent integers straddle the 84 to 86 band, so no integer setting lands in it. The closest tried (q95, 86.10, just above the band) is reported.
+- **coaf-logo.png, JXL:** at target 85 the integer `-q 50` reached 84.73 on the first try. On the continuous `-d` extra, target 85 was reached (d=3.825, 85.03) but target 70 was **not**: the score jumps between about 77 and about 54 (d 9.995: 77.19; d 10.053: 53.98; d 9.878: 77.32; d 10.111: 53.81), so within 8 bisection iterations nothing landed in 69 to 71, as with the integer `-q` search in round 1 (q18: 54.27, q19: 78.96). I did not investigate why.
+- The other cells converged within the 8-iteration limit.

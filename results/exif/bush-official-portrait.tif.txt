@@ -1,0 +1,150 @@
+﻿[ExifTool]      ExifToolVersion                 : 13.59
+[System]        FileName                        : bush-official-portrait.tif
+[System]        Directory                       : sources
+[System]        FileSize                        : 21 MB
+[System]        ZoneIdentifier                  : Exists
+[System]        FileModifyDate                  : 2026:10:15 23:35:38+02:00
+[System]        FileAccessDate                  : 2026:10:16 02:03:40+02:00
+[System]        FileCreateDate                  : 2026:10:15 23:36:45+02:00
+[System]        FilePermissions                 : -rw-rw-rw-
+[File]          FileType                        : TIFF
+[File]          FileTypeExtension               : tif
+[File]          MIMEType                        : image/tiff
+[File]          ExifByteOrder                   : Little-endian (Intel, II)
+[File]          CurrentIPTCDigest               : bc2fdc8c142957b7de14048c0332865c
+[IFD0]          SubfileType                     : Full-resolution image
+[IFD0]          ImageWidth                      : 2366
+[IFD0]          ImageHeight                     : 3000
+[IFD0]          BitsPerSample                   : 8 8 8
+[IFD0]          Compression                     : Uncompressed
+[IFD0]          PhotometricInterpretation       : RGB
+[IFD0]          ImageDescription                : President Bush poses for his Official Portrait in the Roosevelt Room. (Blue tie) Official Portrait of President George W. Bush 2003-01-14 .Eric Draper
+[IFD0]          StripOffsets                    : 29554
+[IFD0]          Orientation                     : Horizontal (normal)
+[IFD0]          SamplesPerPixel                 : 3
+[IFD0]          RowsPerStrip                    : 3000
+[IFD0]          StripByteCounts                 : 21294000
+[IFD0]          XResolution                     : 300
+[IFD0]          YResolution                     : 300
+[IFD0]          PlanarConfiguration             : Chunky
+[IFD0]          ResolutionUnit                  : inches
+[IFD0]          Software                        : Adobe Photoshop CS3 Windows
+[IFD0]          ModifyDate                      : 2012:05:22 09:48:44
+[IFD0]          Artist                          : Eric Draper
+[XMP-x]         XMPToolkit                      : Adobe XMP Core 4.1-c036 46.276720, Mon Feb 19 2007 22:40:08
+[XMP-photoshop] DateCreated                     : 2008:02:08
+[XMP-photoshop] ColorMode                       : RGB
+[XMP-photoshop] ICCProfileName                  : sRGB IEC61966-2.1
+[XMP-photoshop] History                         : 
+[XMP-dc]        Format                          : image/tiff
+[XMP-dc]        Description                     : President Bush poses for his Official Portrait in the Roosevelt Room. (Blue tie) Official Portrait of President George W. Bush 2003-01-14 .Eric Draper
+[XMP-dc]        Creator                         : Eric Draper
+[XMP-photomech] Prefs                           : Tagged:0, ColorClass:0, Rating:0, FrameNum:-00001
+[XMP-xmp]       Rating                          : 0
+[XMP-xmp]       ModifyDate                      : 2012:05:22 09:48:44-04:00
+[XMP-xmp]       CreatorTool                     : Adobe Photoshop CS3 Windows
+[XMP-xmp]       CreateDate                      : 2012:05:22 09:48:44-04:00
+[XMP-xmp]       MetadataDate                    : 2012:05:22 09:48:44-04:00
+[XMP-tiff]      Orientation                     : Horizontal (normal)
+[XMP-tiff]      XResolution                     : 300
+[XMP-tiff]      YResolution                     : 300
+[XMP-tiff]      ResolutionUnit                  : inches
+[XMP-tiff]      NativeDigest                    : 256,257,258,259,262,274,277,284,530,531,282,283,296,301,318,319,529,532,306,270,271,272,305,315,33432;72BD3C1654663FD24DC790D1AC4BB2BF
+[XMP-tiff]      ImageWidth                      : 2366
+[XMP-tiff]      ImageHeight                     : 3000
+[XMP-tiff]      BitsPerSample                   : 8, 8, 8
+[XMP-tiff]      Compression                     : Uncompressed
+[XMP-tiff]      PhotometricInterpretation       : RGB
+[XMP-tiff]      SamplesPerPixel                 : 3
+[XMP-tiff]      PlanarConfiguration             : Chunky
+[XMP-exif]      ColorSpace                      : sRGB
+[XMP-exif]      ExifImageWidth                  : 2366
+[XMP-exif]      ExifImageHeight                 : 3000
+[XMP-exif]      NativeDigest                    : 36864,40960,40961,37121,37122,40962,40963,37510,40964,36867,36868,33434,33437,34850,34852,34855,34856,37377,37378,37379,37380,37381,37382,37383,37384,37385,37386,37396,41483,41484,41486,41487,41488,41492,41493,41495,41728,41729,41730,41985,41986,41987,41988,41989,41990,41991,41992,41993,41994,41995,41996,42016,0,2,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,20,22,23,24,25,26,27,28,30;AE63A4565C1993A3B5A8B7C8B5A3F7A6
+[XMP-xmpMM]     InstanceID                      : uuid:740A3E7F14A4E111BB7698309C93CC09
+[XMP-xmpMM]     DocumentID                      : uuid:730A3E7F14A4E111BB7698309C93CC09
+[XMP-xmpMM]     OriginalDocumentID              : xmp.did:A9CB29F77185E011919DBAB95CA8AA62
+[XMP-xmpMM]     HistoryAction                   : saved, saved, saved
+[XMP-xmpMM]     HistoryInstanceID               : xmp.iid:A9CB29F77185E011919DBAB95CA8AA62, xmp.iid:AACB29F77185E011919DBAB95CA8AA62, xmp.iid:016CFF737285E011BCDBD648F10AEB8A
+[XMP-xmpMM]     HistoryWhen                     : 2011:05:23 14:22:14-05:00, 2011:05:23 14:22:14-05:00, 2011:05:23 14:25:44-05:00
+[XMP-xmpMM]     HistorySoftwareAgent            : Adobe Photoshop CS4 Windows, Adobe Photoshop CS4 Windows, Adobe Photoshop CS4 Windows
+[XMP-xmpMM]     HistoryChanged                  : /, /, /
+[XMP-xmpMM]     DerivedFromInstanceID           : xmp.iid:016CFF737285E011BCDBD648F10AEB8A
+[XMP-xmpMM]     DerivedFromDocumentID           : xmp.did:A9CB29F77185E011919DBAB95CA8AA62
+[IPTC]          ApplicationRecordVersion        : 3
+[IPTC]          Caption-Abstract                : President Bush poses for his Official Portrait in the Roosevelt Room. (Blue tie) Official Portrait of President George W. Bush 2003-01-14 .Eric Draper
+[IPTC]          By-line                         : Eric Draper
+[IPTC]          DateCreated                     : 2008:02:08
+[IPTC]          TimeCreated                     : 16:03:08-06:00
+[IPTC]          Prefs                           : Tagged:0, ColorClass:0, Rating:0, FrameNum:-00001
+[IPTC2]         ApplicationRecordVersion        : 3
+[IPTC2]         Caption-Abstract                : President Bush poses for his Official Portrait in the Roosevelt Room. (Blue tie) Official Portrait of President George W. Bush 2003-01-14 .Eric Draper
+[IPTC2]         By-line                         : Eric Draper
+[IPTC2]         DateCreated                     : 2008:02:08
+[IPTC2]         TimeCreated                     : 16:03:08-06:00
+[IPTC2]         Prefs                           : Tagged:0, ColorClass:0, Rating:0, FrameNum:-00001
+[Photoshop]     IPTCDigest                      : bc2fdc8c142957b7de14048c0332865c
+[Photoshop]     XResolution                     : 300
+[Photoshop]     DisplayedUnitsX                 : inches
+[Photoshop]     YResolution                     : 300
+[Photoshop]     DisplayedUnitsY                 : inches
+[Photoshop]     PrintStyle                      : Centered
+[Photoshop]     PrintPosition                   : 0 0
+[Photoshop]     PrintScale                      : 1
+[Photoshop]     GlobalAngle                     : 30
+[Photoshop]     GlobalAltitude                  : 30
+[Photoshop]     CopyrightFlag                   : False
+[Photoshop]     URL_List                        : 
+[Photoshop]     SlicesGroupName                 : P25695-23
+[Photoshop]     NumSlices                       : 1
+[Photoshop]     PixelAspectRatio                : 1
+[Photoshop]     PhotoshopThumbnail              : (Binary data 5151 bytes, use -b option to extract)
+[Photoshop]     HasRealMergedData               : Yes
+[Photoshop]     WriterName                      : Adobe Photoshop
+[Photoshop]     ReaderName                      : Adobe Photoshop CS3
+[ExifIFD]       ColorSpace                      : sRGB
+[ExifIFD]       ExifImageWidth                  : 2366
+[ExifIFD]       ExifImageHeight                 : 3000
+[ICC-header]    ProfileCMMType                  : Linotronic
+[ICC-header]    ProfileVersion                  : 2.1.0
+[ICC-header]    ProfileClass                    : Display Device Profile
+[ICC-header]    ColorSpaceData                  : RGB
+[ICC-header]    ProfileConnectionSpace          : XYZ
+[ICC-header]    ProfileDateTime                 : 1998:02:09 06:49:00
+[ICC-header]    ProfileFileSignature            : acsp
+[ICC-header]    PrimaryPlatform                 : Microsoft Corporation
+[ICC-header]    CMMFlags                        : Not Embedded, Independent
+[ICC-header]    DeviceManufacturer              : Hewlett-Packard
+[ICC-header]    DeviceModel                     : sRGB
+[ICC-header]    DeviceAttributes                : Reflective, Glossy, Positive, Color
+[ICC-header]    RenderingIntent                 : Perceptual
+[ICC-header]    ConnectionSpaceIlluminant       : 0.9642 1 0.82491
+[ICC-header]    ProfileCreator                  : Hewlett-Packard
+[ICC-header]    ProfileID                       : 0
+[ICC_Profile]   ProfileCopyright                : Copyright (c) 1998 Hewlett-Packard Company
+[ICC_Profile]   ProfileDescription              : sRGB IEC61966-2.1
+[ICC_Profile]   MediaWhitePoint                 : 0.95045 1 1.08905
+[ICC_Profile]   MediaBlackPoint                 : 0 0 0
+[ICC_Profile]   RedMatrixColumn                 : 0.43607 0.22249 0.01392
+[ICC_Profile]   GreenMatrixColumn               : 0.38515 0.71687 0.09708
+[ICC_Profile]   BlueMatrixColumn                : 0.14307 0.06061 0.7141
+[ICC_Profile]   DeviceMfgDesc                   : IEC http://www.iec.ch
+[ICC_Profile]   DeviceModelDesc                 : IEC 61966-2.1 Default RGB colour space - sRGB
+[ICC_Profile]   ViewingCondDesc                 : Reference Viewing Condition in IEC61966-2.1
+[ICC_Profile]   Luminance                       : 76.03647 80 87.12462
+[ICC_Profile]   Technology                      : Cathode Ray Tube Display
+[ICC_Profile]   RedTRC                          : (Binary data 2060 bytes, use -b option to extract)
+[ICC_Profile]   GreenTRC                        : (Binary data 2060 bytes, use -b option to extract)
+[ICC_Profile]   BlueTRC                         : (Binary data 2060 bytes, use -b option to extract)
+[ICC-view]      ViewingCondIlluminant           : 19.6445 20.3718 16.8089
+[ICC-view]      ViewingCondSurround             : 3.92889 4.07439 3.36179
+[ICC-view]      ViewingCondIlluminantType       : D50
+[ICC-meas]      MeasurementObserver             : CIE 1931
+[ICC-meas]      MeasurementBacking              : 0 0 0
+[ICC-meas]      MeasurementGeometry             : Unknown
+[ICC-meas]      MeasurementFlare                : 0.999%
+[ICC-meas]      MeasurementIlluminant           : D65
+[Composite]     ImageSize                       : 2366x3000
+[Composite]     Megapixels                      : 7.1
+[Composite]     DateTimeCreated                 : 2008:02:08 16:03:08-06:00
+[Composite]     DateTimeOriginal                : 2008:02:08 16:03:08-06:00

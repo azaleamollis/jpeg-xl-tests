@@ -1,0 +1,34 @@
+image,format,target,setting,score,bytes,status,iterations,encoded
+archives-ii,JPEG,85,94,85.4498,752023,reached,4,work/round2/lossy/archives-ii/JPEG_t85_q94.jpg
+archives-ii,MOZ,85,91,84.8234,693898,reached,5,work/round2/lossy/archives-ii/MOZ_t85_q91.jpg
+archives-ii,WebP,85,94,84.2318,537528,reached,4,work/round2/lossy/archives-ii/WebP_t85_q94.webp
+archives-ii,AVIF,85,88,85.6550,463544,reached,3,work/round2/lossy/archives-ii/AVIF_t85_q88.avif
+archives-ii,JXL,85,89,84.4974,371188,reached,6,work/round2/lossy/archives-ii/JXL_t85_q89.jxl
+bush-official-portrait,JPEG,85,94,84.1687,910276,reached,4,work/round2/lossy/bush-official-portrait/JPEG_t85_q94.jpg
+bush-official-portrait,MOZ,85,93,85.1701,1258553,reached,7,work/round2/lossy/bush-official-portrait/MOZ_t85_q93.jpg
+bush-official-portrait,WebP,85,94,84.3425,961952,reached,4,work/round2/lossy/bush-official-portrait/WebP_t85_q94.webp
+bush-official-portrait,AVIF,85,88,85.3087,877914,reached,3,work/round2/lossy/bush-official-portrait/AVIF_t85_q88.avif
+bush-official-portrait,JXL,85,92,84.0443,642873,reached,6,work/round2/lossy/bush-official-portrait/JXL_t85_q92.jxl
+chisinau-zoo-lake,JPEG,85,94,84.5164,1513762,reached,4,work/round2/lossy/chisinau-zoo-lake/JPEG_t85_q94.jpg
+chisinau-zoo-lake,MOZ,85,91,84.2476,1557579,reached,5,work/round2/lossy/chisinau-zoo-lake/MOZ_t85_q91.jpg
+chisinau-zoo-lake,WebP,85,94,84.7013,1541540,reached,4,work/round2/lossy/chisinau-zoo-lake/WebP_t85_q94.webp
+chisinau-zoo-lake,AVIF,85,84,85.3945,1089590,reached,5,work/round2/lossy/chisinau-zoo-lake/AVIF_t85_q84.avif
+chisinau-zoo-lake,JXL,85,92,84.1635,1051717,reached,6,work/round2/lossy/chisinau-zoo-lake/JXL_t85_q92.jxl
+summer-tanager,JPEG,85,94,85.6437,490907,reached,4,work/round2/lossy/summer-tanager/JPEG_t85_q94.jpg
+summer-tanager,MOZ,85,94,85.6557,457870,reached,4,work/round2/lossy/summer-tanager/MOZ_t85_q94.jpg
+summer-tanager,WebP,85,95,86.0983,473088,NOT REACHED,6,work/round2/lossy/summer-tanager/WebP_t85_q95.webp
+summer-tanager,AVIF,85,84,84.2148,243227,reached,5,work/round2/lossy/summer-tanager/AVIF_t85_q84.avif
+summer-tanager,JXL,85,91,85.5113,218195,reached,5,work/round2/lossy/summer-tanager/JXL_t85_q91.jxl
+vscode-jxl-rs,JPEG,85,99,64.8935,588194,NOT REACHED,7,work/round2/lossy/vscode-jxl-rs/JPEG_t85_q99.jpg
+vscode-jxl-rs,MOZ,85,91,84.0057,423734,reached,5,work/round2/lossy/vscode-jxl-rs/MOZ_t85_q91.jpg
+vscode-jxl-rs,WebP,85,97,59.9660,270816,NOT REACHED,7,work/round2/lossy/vscode-jxl-rs/WebP_t85_q97.webp
+vscode-jxl-rs,AVIF,85,62,85.9570,120812,reached,3,work/round2/lossy/vscode-jxl-rs/AVIF_t85_q62.avif
+vscode-jxl-rs,JXL,85,81,85.2861,243142,reached,4,work/round2/lossy/vscode-jxl-rs/JXL_t85_q81.jxl
+coaf-logo,WebP,85,75,85.2731,9944,reached,2,work/round2/lossy/coaf-logo/WebP_t85_q75.webp
+coaf-logo,AVIF,85,37,85.9155,7429,reached,3,work/round2/lossy/coaf-logo/AVIF_t85_q37.avif
+coaf-logo,JXL,85,50,84.7298,8824,reached,1,work/round2/lossy/coaf-logo/JXL_t85_q50.jxl
+archives-ii,MOZ,70,68,69.1825,222701,reached,4,work/round2/lossy/archives-ii/MOZ_t70_q68.jpg
+bush-official-portrait,MOZ,70,78,70.0997,259281,reached,5,work/round2/lossy/bush-official-portrait/MOZ_t70_q78.jpg
+chisinau-zoo-lake,MOZ,70,78,70.9576,659910,reached,5,work/round2/lossy/chisinau-zoo-lake/MOZ_t70_q78.jpg
+summer-tanager,MOZ,70,65,70.4444,90750,reached,5,work/round2/lossy/summer-tanager/MOZ_t70_q65.jpg
+vscode-jxl-rs,MOZ,70,89,68.9313,274726,NOT REACHED,7,work/round2/lossy/vscode-jxl-rs/MOZ_t70_q89.jpg

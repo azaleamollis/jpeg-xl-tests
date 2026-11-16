@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Decode-speed analysis</title>
+<style>
+:root{--bg:#fff;--fg:#1d2330;--mut:#5b6472;--line:#d9dee7;--acc:#1f5fbf;--warn:#9a5b00;--bad:#b42318;--soft:#f4f6fa;--noisy:#fff3d6}
+@media (prefers-color-scheme:dark){:root{--bg:#14171d;--fg:#e6e9ef;--mut:#9aa3b2;--line:#2c323d;--acc:#6ea3ff;--warn:#f0b24a;--bad:#ff8a80;--soft:#1c2029;--noisy:#3a2f12}}
+*{box-sizing:border-box}
+body{margin:0;padding:16px;background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,Segoe UI,sans-serif;max-width:1600px;margin-inline:auto}
+h1{font-size:20px;margin:0 0 4px}h2{font-size:16px;margin:0 0 8px}
+section{border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:12px 0}
+.mut{color:var(--mut)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+button{font:inherit;padding:5px 12px;border:1px solid var(--acc);background:var(--acc);color:#fff;border-radius:5px;cursor:pointer}
+input[type=number]{font:inherit;width:70px;padding:3px 6px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--fg)}
+table{border-collapse:collapse;font-size:12px}
+th,td{border:1px solid var(--line);padding:2px 6px;text-align:right;white-space:nowrap}
+th{background:var(--soft);position:sticky;top:0}td.l,th.l{text-align:left}
+tr.gh td{background:var(--soft);font-weight:600;text-align:left}td.hi{background:var(--noisy)}
+.scroll{overflow:auto;max-height:70vh}
+textarea{width:100%;height:340px;font:12px/1.35 Consolas,monospace;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:4px}
+</style>
+</head>
+<body>
+<h1>Decode-speed analysis</h1>
+<div class="mut">Load several <b>raw</b> CSVs exported by index.html (Chrome and Firefox, repeat runs). Optionally also load the matching <b>summary</b> CSVs: they only supply the baseline/progressive JPEG labels and the article-baseline flag. Everything is computed here from the loaded rows; nothing is fetched.</div>
+
+<section>
+<h2>Load CSVs</h2>
+<input type="file" id="files" accept=".csv" multiple>
+<label style="margin-left:12px">highlight run-to-run spread above <input type="number" id="thr" value="10" min="0"> %</label>
+<div id="loadMsg" class="mut" style="margin-top:6px"></div>
+<div class="scroll" style="max-height:200px"><table id="runTable"></table></div>
+</section>
+
+<section id="sideSec" style="display:none">
+<h2>Chrome and Firefox side by side</h2>
+<div class="mut">Per file: median of the per-run medians. Spread = (largest run median − smallest run median) / median of run medians, shown only with 2+ runs. "max CV" is the largest within-run CV% across that browser's runs.</div>
+<div class="scroll"><table id="sideTable"></table></div>
+</section>
+
+<section id="ratioSec" style="display:none">
+<h2>Ratios against both JPEG baselines</h2>
+<div class="mut">Ratio = this file's median-of-runs / reference median-of-runs, within the same browser. [type] is the reference JPEG's header label (needs a summary CSV). ★ = JPEG baseline used by the article.</div>
+<div id="ratioOut"></div>
+</section>
+
+<section id="txtSec" style="display:none">
+<h2>Plain-text summary</h2>
+<button id="btnCopy">Copy</button> <span id="copyMsg" class="mut"></span>
+<textarea id="txt" readonly></textarea>
+</section>
+
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const GROUP_ORDER = ['lossy70', 'lossy85', 'lossless', 'recompress'];
+const IMAGE_ORDER = ['archives-ii', 'bush-official-portrait', 'chisinau-zoo-lake', 'summer-tanager', 'vscode-jxl-rs', 'coaf-logo'];
+const LABEL_ORDER = ['PNG-oxipng', 'JPEG-libjpeg-turbo-420', 'JPEG-libjpeg-turbo-444', 'JPEG-MozJPEG-420', 'JPEG-MozJPEG-default', 'WebP', 'AVIF', 'JXL', 'JXL-distance'];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmtN = (x, d) => (x === null || x === undefined || !isFinite(x)) ? 'n/a' : x.toFixed(d);
+function median(a) { const s = a.slice().sort((x, y) => x - y), n = s.length; return n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2; }
+function parseCSV(text) {
+  if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
+  const rows = []; let row = [], f = '', q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) { if (c === '"') { if (text[i + 1] === '"') { f += '"'; i++; } else q = false; } else f += c; }
+    else if (c === '"') q = true;
+    else if (c === ',') { row.push(f); f = ''; }
+    else if (c === '\n' || c === '\r') { if (c === '\r' && text[i + 1] === '\n') i++; row.push(f); f = ''; if (row.length > 1 || row[0] !== '') rows.push(row); row = []; }
+    else f += c;
+  }
+  if (f !== '' || row.length) { row.push(f); rows.push(row); }
+  const h = rows.shift() || [];
+  return { header: h, rows: rows.map(r => Object.fromEntries(h.map((k, i) => [k, r[i] === undefined ? '' : r[i]]))) };
+}
+function family(browser, ua) {
+  const s = (browser || '') + ' ' + (ua || '');
+  return /firefox/i.test(s) ? 'Firefox' : /edg/i.test(s) ? 'Edge' : /chrome|chromium/i.test(s) ? 'Chrome' : /safari/i.test(s) ? 'Safari' : 'Other';
+}
+const oi = (arr, v) => { const i = arr.indexOf(v); return i < 0 ? 99 : i; };
+
+let RUNS = [], META = {}, TYPES = {}, BASE = {}, FAMS = [], PER = {};
+
+$('files').addEventListener('change', async e => {
+  RUNS = []; META = {}; TYPES = {}; BASE = {}; const msgs = [];
+  for (const f of Array.from(e.target.files)) {
+    try {
+      const { header, rows } = parseCSV(await f.text());
+      if (header.indexOf('round') >= 0 && header.indexOf('ms') >= 0 && header.indexOf('file_name') >= 0) {
+        const byFile = {}, rounds = new Set(); let bad = 0;
+        for (const r of rows) {
+          const ms = parseFloat(r.ms);
+          if (!isFinite(ms)) { bad++; continue; }
+          (byFile[r.file_name] = byFile[r.file_name] || []).push(ms); rounds.add(r.round);
+          META[r.file_name] = { group: r.group, image: r.image, label: r.format, setting: r.setting, bytes: +r.bytes, w: +r.width, h: +r.height };
+        }
+        const first = rows[0] || {};
+        RUNS.push({ name: f.name, browser: first.browser || '', fam: family(first.browser, first.ua), byFile, nRows: rows.length, nFiles: Object.keys(byFile).length, nRounds: rounds.size, bad });
+      } else if (header.indexOf('median_ms') >= 0 && header.indexOf('file_name') >= 0) {
+        for (const r of rows) {
+          if (r.own_jpeg_type && r.own_jpeg_type !== 'n/a') { if (TYPES[r.file_name] && TYPES[r.file_name] !== r.own_jpeg_type) msgs.push('Conflicting JPEG type for ' + r.file_name); TYPES[r.file_name] = r.own_jpeg_type; }
+          BASE[r.file_name] = String(r.is_article_jpeg_baseline).toLowerCase() === 'true';
+        }
+        msgs.push(f.name + ': summary CSV, used only for JPEG type labels and the baseline flag.');
+      } else msgs.push(f.name + ': not recognised as a raw or summary export, ignored.');
+    } catch (err) { msgs.push(f.name + ': could not be read (' + err.message + ').'); }
+  }
+  $('loadMsg').innerHTML = msgs.map(esc).join('<br>');
+  analyse();
+});
+$('thr').addEventListener('input', () => { if (RUNS.length) analyse(); });
+
+const shortType = t => t ? t.split(' ')[0] : '';
+
+function analyse() {
+  FAMS = [...new Set(RUNS.map(r => r.fam))].sort((a, b) => ['Chrome', 'Firefox', 'Edge', 'Safari', 'Other'].indexOf(a) - ['Chrome', 'Firefox', 'Edge', 'Safari', 'Other'].indexOf(b));
+  let h = '<tr><th class="l">file</th><th class="l">browser field</th><th>family</th><th>rows</th><th>files</th><th>rounds</th><th>skipped rows</th></tr>';
+  RUNS.forEach(r => h += '<tr><td class="l">' + esc(r.name) + '</td><td class="l">' + esc(r.browser) + '</td><td>' + r.fam + '</td><td>' + r.nRows + '</td><td>' + r.nFiles + '</td><td>' + r.nRounds + '</td><td>' + r.bad + '</td></tr>');
+  $('runTable').innerHTML = h;
+  PER = {};
+  for (const fam of FAMS) {
+    PER[fam] = {};
+    const runs = RUNS.filter(r => r.fam === fam);
+    for (const fn of Object.keys(META)) {
+      const meds = [], cvs = [];
+      for (const r of runs) {
+        const a = r.byFile[fn]; if (!a || !a.length) continue;
+        meds.push(median(a));
+        if (a.length > 1) { const mean = a.reduce((x, y) => x + y, 0) / a.length; const sd = Math.sqrt(a.reduce((x, y) => x + (y - mean) * (y - mean), 0) / (a.length - 1)); if (mean > 0) cvs.push(sd / mean * 100); }
+      }
+      if (!meds.length) continue;
+      const mm = median(meds);
+      PER[fam][fn] = { runs: meds.length, meds, med: mm, spread: meds.length > 1 && mm > 0 ? (Math.max(...meds) - Math.min(...meds)) / mm * 100 : null, maxCv: cvs.length ? Math.max(...cvs) : null };
+    }
+  }
+  const files = Object.keys(META).sort((a, b) => {
+    const A = META[a], B = META[b];
+    return oi(GROUP_ORDER, A.group) - oi(GROUP_ORDER, B.group) || oi(IMAGE_ORDER, A.image) - oi(IMAGE_ORDER, B.image) || oi(LABEL_ORDER, A.label) - oi(LABEL_ORDER, B.label) || A.label.localeCompare(B.label) || A.setting.localeCompare(B.setting);
+  });
+  const any = files.length > 0;
+  $('sideSec').style.display = $('ratioSec').style.display = $('txtSec').style.display = any ? '' : 'none';
+  if (!any) return;
+  renderSide(files); renderRatios(files); renderText(files);
+}
+
+function ref(fn, label, setting) {
+  const m = META[fn];
+  return Object.keys(META).find(k => META[k].group === m.group && META[k].image === m.image && META[k].label === label && (setting === undefined || META[k].setting === setting));
+}
+function refs(fn) {
+  const m = META[fn], rec = m.group === 'recompress';
+  const base = rec ? null : Object.keys(META).find(k => META[k].group === m.group && META[k].image === m.image && BASE[k]);
+  return { lib: rec ? null : ref(fn, 'JPEG-libjpeg-turbo-420'), moz: rec ? null : ref(fn, 'JPEG-MozJPEG-420'), base,
+    webp: rec ? null : ref(fn, 'WebP'), avif: rec ? null : ref(fn, 'AVIF'), png: m.group === 'lossless' ? ref(fn, 'PNG-oxipng') : null,
+    orig: (rec && m.label.indexOf('JXL-recompressed-from-') === 0) ? ref(fn, m.label.replace('JXL-recompressed-from-', 'JPEG-'), m.setting + '-original') : null };
+}
+function rat(fam, fn, rf) {
+  if (!rf) return null; const a = PER[fam][fn], b = PER[fam][rf];
+  return (a && b && a.med > 0 && b.med > 0) ? a.med / b.med : null;
+}
+
+function renderSide(files) {
+  const thr = parseFloat($('thr').value) || 0;
+  let h = '<tr><th class="l">group</th><th class="l">image</th><th class="l">format</th><th class="l">setting</th>';
+  FAMS.forEach(f => h += '<th>' + f + ' median ms</th><th>' + f + ' runs</th><th>' + f + ' spread %</th><th>' + f + ' max CV %</th><th class="l">' + f + ' run medians</th>');
+  const both = FAMS.indexOf('Chrome') >= 0 && FAMS.indexOf('Firefox') >= 0;
+  if (both) h += '<th>Firefox / Chrome</th>';
+  h += '</tr>'; let lastG = '';
+  for (const fn of files) {
+    const m = META[fn];
+    if (m.group !== lastG) { lastG = m.group; h += '<tr class="gh"><td colspan="' + (4 + FAMS.length * 5 + (both ? 1 : 0)) + '">' + esc(lastG) + '</td></tr>'; }
+    h += '<tr><td class="l">' + esc(m.group) + '</td><td class="l">' + esc(m.image) + '</td><td class="l">' + esc(m.label) + '</td><td class="l">' + esc(m.setting) + '</td>';
+    for (const f of FAMS) {
+      const p = PER[f][fn];
+      if (!p) { h += '<td>n/a</td><td>0</td><td>n/a</td><td>n/a</td><td class="l">n/a</td>'; continue; }
+      h += '<td>' + fmtN(p.med, 3) + '</td><td>' + p.runs + '</td><td class="' + (p.spread !== null && p.spread > thr ? 'hi' : '') + '">' + fmtN(p.spread, 1) + '</td><td>' + fmtN(p.maxCv, 1) + '</td><td class="l">' + p.meds.map(x => x.toFixed(3)).join(' / ') + '</td>';
+    }
+    if (both) { const a = PER.Chrome[fn], b = PER.Firefox[fn]; h += '<td>' + ((a && b && a.med > 0 && b.med > 0) ? fmtN(b.med / a.med, 3) : 'n/a') + '</td>'; }
+    h += '</tr>';
+  }
+  $('sideTable').innerHTML = h;
+}
+
+function renderRatios(files) {
+  let out = '';
+  const noTypes = Object.keys(TYPES).length === 0;
+  if (noTypes) out += '<div class="warn">No summary CSV loaded: JPEG baseline/progressive labels and the article-baseline column are unavailable (shown as n/a).</div>';
+  for (const f of FAMS) {
+    let h = '<h3 style="margin:10px 0 4px;font-size:14px">' + f + '</h3><div class="scroll"><table><tr><th class="l">group</th><th class="l">image</th><th class="l">format</th><th class="l">setting</th><th>median ms</th><th>vs libjpeg-turbo [type]</th><th>vs MozJPEG [type]</th><th>vs article baseline</th><th>vs WebP</th><th>vs AVIF</th><th>vs PNG</th><th>vs original JPEG [type]</th></tr>';
+    let lastG = '';
+    for (const fn of files) {
+      const m = META[fn], p = PER[f][fn], r = refs(fn);
+      if (m.group !== lastG) { lastG = m.group; h += '<tr class="gh"><td colspan="12">' + esc(lastG) + '</td></tr>'; }
+      const t = k => (k && TYPES[k]) ? ' [' + shortType(TYPES[k]) + ']' : (k ? ' [type n/a]' : '');
+      const c = (k, withType) => { const v = rat(f, fn, k); return fmtN(v, 3) + (v !== null && withType ? t(k) : ''); };
+      const rb = rat(f, fn, r.base);
+      h += '<tr><td class="l">' + esc(m.group) + '</td><td class="l">' + esc(m.image) + '</td><td class="l">' + esc(m.label) + (BASE[fn] ? ' ★' : '') + '</td><td class="l">' + esc(m.setting) + '</td><td>' + (p ? fmtN(p.med, 3) : 'n/a') + '</td>' +
+        '<td>' + c(r.lib, true) + '</td><td>' + c(r.moz, true) + '</td><td>' + (rb !== null ? fmtN(rb, 3) + ' (' + (META[r.base].label.indexOf('Moz') >= 0 ? 'Moz' : 'libjpeg') + ')' : 'n/a') + '</td>' +
+        '<td>' + c(r.webp) + '</td><td>' + c(r.avif) + '</td><td>' + c(r.png) + '</td><td>' + c(r.orig, true) + '</td></tr>';
+    }
+    out += h + '</table></div>';
+  }
+  $('ratioOut').innerHTML = out;
+}
+
+function renderText(files) {
+  const L = [];
+  L.push('Decode-speed summary. Values are the median over repeat runs of each run\'s median decode time (ms), per browser.');
+  FAMS.forEach(f => { const rs = RUNS.filter(r => r.fam === f); L.push(f + ': ' + rs.length + ' run(s) [' + rs.map(r => r.browser || r.name).join('; ') + ']'); });
+  L.push('Ratios = file median / reference median in the same browser; [b]=baseline JPEG, [p]=progressive JPEG (from summary CSV; ? if unknown); * = article JPEG baseline.');
+  let lastKey = '';
+  const pad = (s, n) => String(s).padEnd(n), padl = (s, n) => String(s).padStart(n);
+  const tc = k => (k && TYPES[k]) ? (/progressive/.test(TYPES[k]) ? 'p' : /baseline/.test(TYPES[k]) ? 'b' : '?') : '?';
+  for (const fn of files) {
+    const m = META[fn], key = m.group + ' / ' + m.image;
+    if (key !== lastKey) { lastKey = key; L.push(''); L.push('== ' + key + ' ==');
+      L.push(pad('format', 34) + FAMS.map(f => padl(f + ' ms', 12) + padl('spread%', 8) + padl('vsLib', 8) + padl('vsMoz', 8) + padl('vsBase', 8)).join('')); }
+    const r = refs(fn);
+    const cols = FAMS.map(f => {
+      const p = PER[f][fn];
+      const v = k => { const x = rat(f, fn, k); return x === null ? 'n/a' : x.toFixed(2); };
+      return padl(p ? p.med.toFixed(2) : 'n/a', 12) + padl(p && p.spread !== null ? p.spread.toFixed(1) : 'n/a', 8) +
+        padl(v(r.lib) + (rat(f, fn, r.lib) !== null ? '[' + tc(r.lib) + ']' : ''), 8) + padl(v(r.moz) + (rat(f, fn, r.moz) !== null ? '[' + tc(r.moz) + ']' : ''), 8) + padl(v(r.base), 8);
+    }).join('');
+    const extras = [];
+    const add = (name, k) => { FAMS.forEach(f => { const x = rat(f, fn, k); if (x !== null) extras.push(f[0] + ' vs ' + name + ' ' + x.toFixed(2)); }); };
+    add('WebP', r.webp); add('AVIF', r.avif); add('PNG', r.png); add('origJPEG[' + tc(r.orig) + ']', r.orig);
+    L.push(pad(m.label + ' ' + m.setting + (BASE[fn] ? ' *' : ''), 34) + cols + (extras.length ? '   | ' + extras.join(', ') : ''));
+  }
+  $('txt').value = L.join('\n') + '\n';
+}
+$('btnCopy').addEventListener('click', async () => {
+  const t = $('txt'); t.select();
+  try { await navigator.clipboard.writeText(t.value); $('copyMsg').textContent = 'Copied.'; }
+  catch (e) { try { document.execCommand('copy'); $('copyMsg').textContent = 'Copied.'; } catch (e2) { $('copyMsg').textContent = 'Select the text and copy manually.'; } }
+});
+</script>
+</body>
+</html>

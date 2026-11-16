@@ -1,0 +1,75 @@
+image,target,format,variant,setting,setting_type,ssimulacra2_score,bytes,status,source
+archives-ii.tif,85,"JPEG (libjpeg-turbo, baseline)",4:2:0,94,quality,85.4498,752023,reached,round 2
+archives-ii.tif,85,"JPEG (MozJPEG 4.0.3, progressive)",default,91,quality,84.8234,693898,reached,round 2
+archives-ii.tif,85,WebP (cwebp 1.6.0),4:2:0,94,quality,84.2318,537528,reached,round 2
+archives-ii.tif,85,"AVIF (avifenc 1.4.2, aom 3.14.1)",default,88,quality,85.6550,463544,reached,round 2
+archives-ii.tif,85,JXL (cjxl 0.12.0),default,89,quality,84.4974,371188,reached,round 2
+archives-ii.tif,70,"JPEG (libjpeg-turbo, baseline)",4:2:0,68,quality,70.5070,276425,reached,round 1
+archives-ii.tif,70,"JPEG (MozJPEG 4.0.3, progressive)",default,68,quality,69.1825,222701,reached,round 2
+archives-ii.tif,70,WebP (cwebp 1.6.0),4:2:0,75,quality,69.6723,172802,reached,round 1
+archives-ii.tif,70,"AVIF (avifenc 1.4.2, aom 3.14.1)",default,50,quality,69.0230,97157,reached,round 1
+archives-ii.tif,70,JXL (cjxl 0.12.0),default,56,quality,69.2973,150652,reached,round 1
+bush-official-portrait.tif,85,"JPEG (libjpeg-turbo, baseline)",4:2:0,94,quality,84.1687,910276,reached,round 2
+bush-official-portrait.tif,85,"JPEG (MozJPEG 4.0.3, progressive)",default,93,quality,85.1701,1258553,reached,round 2
+bush-official-portrait.tif,85,WebP (cwebp 1.6.0),4:2:0,94,quality,84.3425,961952,reached,round 2
+bush-official-portrait.tif,85,"AVIF (avifenc 1.4.2, aom 3.14.1)",default,88,quality,85.3087,877914,reached,round 2
+bush-official-portrait.tif,85,JXL (cjxl 0.12.0),default,92,quality,84.0443,642873,reached,round 2
+bush-official-portrait.tif,70,"JPEG (libjpeg-turbo, baseline)",4:2:0,75,quality,69.9034,325355,reached,round 1
+bush-official-portrait.tif,70,"JPEG (MozJPEG 4.0.3, progressive)",default,78,quality,70.0997,259281,reached,round 2
+bush-official-portrait.tif,70,WebP (cwebp 1.6.0),4:2:0,85,quality,69.2013,348982,reached,round 1
+bush-official-portrait.tif,70,"AVIF (avifenc 1.4.2, aom 3.14.1)",default,62,quality,69.2441,242305,reached,round 1
+bush-official-portrait.tif,70,JXL (cjxl 0.12.0),default,78,quality,70.8999,216007,reached,round 1
+chisinau-zoo-lake.tif,85,"JPEG (libjpeg-turbo, baseline)",4:2:0,94,quality,84.5164,1513762,reached,round 2
+chisinau-zoo-lake.tif,85,"JPEG (MozJPEG 4.0.3, progressive)",default,91,quality,84.2476,1557579,reached,round 2
+chisinau-zoo-lake.tif,85,WebP (cwebp 1.6.0),4:2:0,94,quality,84.7013,1541540,reached,round 2
+chisinau-zoo-lake.tif,85,"AVIF (avifenc 1.4.2, aom 3.14.1)",default,84,quality,85.3945,1089590,reached,round 2
+chisinau-zoo-lake.tif,85,JXL (cjxl 0.12.0),default,92,quality,84.1635,1051717,reached,round 2
+chisinau-zoo-lake.tif,70,"JPEG (libjpeg-turbo, baseline)",4:2:0,71,quality,70.4658,717955,reached,round 1
+chisinau-zoo-lake.tif,70,"JPEG (MozJPEG 4.0.3, progressive)",default,78,quality,70.9576,659910,reached,round 2
+chisinau-zoo-lake.tif,70,WebP (cwebp 1.6.0),4:2:0,75,quality,70.4406,716152,reached,round 1
+chisinau-zoo-lake.tif,70,"AVIF (avifenc 1.4.2, aom 3.14.1)",default,59,quality,70.1068,529004,reached,round 1
+chisinau-zoo-lake.tif,70,JXL (cjxl 0.12.0),default,75,quality,69.9223,538641,reached,round 1
+summer-tanager.tif,85,"JPEG (libjpeg-turbo, baseline)",4:2:0,94,quality,85.6437,490907,reached,round 2
+summer-tanager.tif,85,"JPEG (MozJPEG 4.0.3, progressive)",default,94,quality,85.6557,457870,reached,round 2
+summer-tanager.tif,85,WebP (cwebp 1.6.0),4:2:0,95,quality,86.0983,473088,NOT REACHED closest tried,round 2
+summer-tanager.tif,85,"AVIF (avifenc 1.4.2, aom 3.14.1)",default,84,quality,84.2148,243227,reached,round 2
+summer-tanager.tif,85,JXL (cjxl 0.12.0),default,91,quality,85.5113,218195,reached,round 2
+summer-tanager.tif,70,"JPEG (libjpeg-turbo, baseline)",4:2:0,62,quality,70.8340,108476,reached,round 1
+summer-tanager.tif,70,"JPEG (MozJPEG 4.0.3, progressive)",default,65,quality,70.4444,90750,reached,round 2
+summer-tanager.tif,70,WebP (cwebp 1.6.0),4:2:0,68,quality,69.6579,64622,reached,round 1
+summer-tanager.tif,70,"AVIF (avifenc 1.4.2, aom 3.14.1)",default,44,quality,69.9572,39005,reached,round 1
+summer-tanager.tif,70,JXL (cjxl 0.12.0),default,50,quality,69.5744,47401,reached,round 1
+vscode-jxl-rs.png,85,"JPEG (libjpeg-turbo, baseline)",4:2:0,99,quality,64.8935,588194,NOT REACHED closest tried,round 2
+vscode-jxl-rs.png,85,"JPEG (MozJPEG 4.0.3, progressive)",default,91,quality,84.0057,423734,reached,round 2
+vscode-jxl-rs.png,85,WebP (cwebp 1.6.0),4:2:0,97,quality,59.9660,270816,NOT REACHED closest tried,round 2
+vscode-jxl-rs.png,85,"AVIF (avifenc 1.4.2, aom 3.14.1)",default,62,quality,85.9570,120812,reached,round 2
+vscode-jxl-rs.png,85,JXL (cjxl 0.12.0),default,81,quality,85.2861,243142,reached,round 2
+vscode-jxl-rs.png,70,"JPEG (libjpeg-turbo, baseline)",4:2:0,99,quality,64.8935,588194,NOT REACHED closest tried,round 1
+vscode-jxl-rs.png,70,"JPEG (MozJPEG 4.0.3, progressive)",default,89,quality,68.9313,274726,NOT REACHED closest tried,round 2
+vscode-jxl-rs.png,70,WebP (cwebp 1.6.0),4:2:0,97,quality,59.9660,270816,NOT REACHED closest tried,round 1
+vscode-jxl-rs.png,70,"AVIF (avifenc 1.4.2, aom 3.14.1)",default,40,quality,70.4296,69496,reached,round 1
+vscode-jxl-rs.png,70,JXL (cjxl 0.12.0),default,40,quality,70.7411,87586,reached,round 1
+coaf-logo.png,85,"JPEG (libjpeg-turbo, baseline)",4:2:0,,,,,skipped,round 2
+coaf-logo.png,85,"JPEG (MozJPEG 4.0.3, progressive)",default,,,,,skipped,round 2
+coaf-logo.png,85,WebP (cwebp 1.6.0),4:2:0,75,quality,85.2731,9944,reached,round 2
+coaf-logo.png,85,"AVIF (avifenc 1.4.2, aom 3.14.1)",default,37,quality,85.9155,7429,reached,round 2
+coaf-logo.png,85,JXL (cjxl 0.12.0),default,50,quality,84.7298,8824,reached,round 2
+coaf-logo.png,70,"JPEG (libjpeg-turbo, baseline)",4:2:0,,,,,skipped,round 1
+coaf-logo.png,70,"JPEG (MozJPEG 4.0.3, progressive)",default,,,,,skipped,round 2
+coaf-logo.png,70,WebP (cwebp 1.6.0),4:2:0,9,quality,70.9144,7198,reached,round 1
+coaf-logo.png,70,"AVIF (avifenc 1.4.2, aom 3.14.1)",default,4,quality,69.7767,4477,reached,round 1
+coaf-logo.png,70,JXL (cjxl 0.12.0),default,21,quality,78.6437,7328,NOT REACHED closest tried,round 1
+archives-ii.tif,70,"JPEG (MozJPEG 4.0.3, progressive)",4:2:0 forced,68,quality,69.1825,222701,reached,round 2 extra (follow-up)
+bush-official-portrait.tif,70,"JPEG (MozJPEG 4.0.3, progressive)",4:2:0 forced,78,quality,70.0997,259281,reached,round 2 extra (follow-up)
+chisinau-zoo-lake.tif,70,"JPEG (MozJPEG 4.0.3, progressive)",4:2:0 forced,78,quality,70.9576,659910,reached,round 2 extra (follow-up)
+summer-tanager.tif,70,"JPEG (MozJPEG 4.0.3, progressive)",4:2:0 forced,65,quality,70.4444,90750,reached,round 2 extra (follow-up)
+vscode-jxl-rs.png,70,"JPEG (MozJPEG 4.0.3, progressive)",4:2:0 forced,100,quality,64.8341,604348,NOT REACHED closest tried,round 2 extra (follow-up)
+archives-ii.tif,85,"JPEG (MozJPEG 4.0.3, progressive)",4:2:0 forced,94,quality,84.6420,616304,reached,round 2 extra (follow-up)
+bush-official-portrait.tif,85,"JPEG (MozJPEG 4.0.3, progressive)",4:2:0 forced,95,quality,84.5453,851306,reached,round 2 extra (follow-up)
+chisinau-zoo-lake.tif,85,"JPEG (MozJPEG 4.0.3, progressive)",4:2:0 forced,97,quality,85.7388,1743385,reached,round 2 extra (follow-up)
+summer-tanager.tif,85,"JPEG (MozJPEG 4.0.3, progressive)",4:2:0 forced,94,quality,84.8342,341612,reached,round 2 extra (follow-up)
+vscode-jxl-rs.png,85,"JPEG (MozJPEG 4.0.3, progressive)",4:2:0 forced,100,quality,64.8341,604348,NOT REACHED closest tried,round 2 extra (follow-up)
+vscode-jxl-rs.png,70,"JPEG (libjpeg-turbo, baseline)",4:4:4,69,quality,69.2604,232149,reached,round 2 extra
+coaf-logo.png,70,JXL (cjxl 0.12.0),distance (-d),9.995,distance,77.1869,7042,NOT REACHED closest tried,round 2 extra
+vscode-jxl-rs.png,85,"JPEG (libjpeg-turbo, baseline)",4:4:4,91,quality,85.8955,472734,reached,round 2 extra
+coaf-logo.png,85,JXL (cjxl 0.12.0),distance (-d),3.825,distance,85.0297,9345,reached,round 2 extra

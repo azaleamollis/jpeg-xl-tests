@@ -1,0 +1,18 @@
+cjxl: cjxl v0.12.0 4128790 [_SSE2_] {Clang 22.1.3} | Copyright (c) the JPEG XL Project
+djxl: djxl v0.12.0 4128790 [_SSE2_] {Clang 22.1.3} | Copyright (c) the JPEG XL Project
+avifenc: Version: 1.4.2 (dav1d [dec]:1.5.3-0-gb546257, aom [enc]:3.14.1) | libyuv : available (1924)
+avifdec: Version: 1.4.2 (dav1d [dec]:1.5.3-0-gb546257, aom [enc]:3.14.1) | libyuv : available (1924)
+cwebp: 1.6.0 | libsharpyuv: 0.4.2
+dwebp: 1.6.0
+exiftool: 13.59
+oxipng: oxipng 10.2.1
+ssimulacra2.exe: shipped in jxl-x64-windows-static.zip of libjxl v0.12.0 (no --version flag; same release as cjxl/djxl)
+python: 3.14.8 (Windows)
+numpy 2.5.4; scipy 1.18.1; tifffile 2026.10.15; imagecodecs 2026.10.10 (lcms2 lcms2 2.19.0); Pillow 12.3.0
+JPEG encoder: Pillow's bundled libjpeg(-turbo): jpg=8.0, libjpeg_turbo=True 3.1.4.1
+Not used: ImageMagick/cjpeg (ImageMagick portable 7z needs a BCJ2 extractor that is not available here; no cjpeg build available without admin/choco)
+Downloaded sources: libjxl v0.12.0 (github.com/libjxl/libjxl releases), libavif v1.4.2 (github.com/AOMediaCodec/libavif releases), libwebp 1.6.0 (storage.googleapis.com/downloads.webmproject.org), exiftool 13.59 (sourceforge.net/projects/exiftool), oxipng v10.2.1 (github.com/oxipng/oxipng releases)
+
+# --- round 2 additions ---
+cjpeg (MozJPEG): mozjpeg version 4.0.3 (build 20210225) -- cjpeg-static.exe from mozjpeg-v4.0.3-win-x64.zip (static/Release), official release page https://github.com/mozilla/mozjpeg/releases/tag/v4.0.3 ; zip SHA-256 c8db69b2bbf9cff05447e60454b55317f719d9793b9100597bfcd4682836f7ee ; no admin rights; extracted to work/tools/mozjpeg/x. (Newer tags, v4.1.1 to v4.1.5, have no prebuilt Windows binaries on the release page and were not tested.)
+MozJPEG input: PPM written by the scripts (cjpeg does not read PNG); MozJPEG output decoded with Pillow (same decode path as the libjpeg-turbo column)

@@ -1,0 +1,31 @@
+﻿[ExifTool]      ExifToolVersion                 : 13.59
+[System]        FileName                        : dsoc-laser.tif
+[System]        Directory                       : sources
+[System]        FileSize                        : 54 MB
+[System]        ZoneIdentifier                  : Exists
+[System]        FileModifyDate                  : 2026:10:16 01:28:03+02:00
+[System]        FileAccessDate                  : 2026:10:16 02:06:01+02:00
+[System]        FileCreateDate                  : 2026:10:16 01:27:38+02:00
+[System]        FilePermissions                 : -rw-rw-rw-
+[File]          FileType                        : TIFF
+[File]          FileTypeExtension               : tif
+[File]          MIMEType                        : image/tiff
+[File]          ExifByteOrder                   : Little-endian (Intel, II)
+[IFD0]          SubfileType                     : Full-resolution image
+[IFD0]          ImageWidth                      : 7360
+[IFD0]          ImageHeight                     : 4912
+[IFD0]          BitsPerSample                   : 8 8 8
+[IFD0]          Compression                     : LZW
+[IFD0]          PhotometricInterpretation       : RGB
+[IFD0]          StripOffsets                    : (Binary data 43238 bytes, use -b option to extract)
+[IFD0]          SamplesPerPixel                 : 3
+[IFD0]          RowsPerStrip                    : 1
+[IFD0]          StripByteCounts                 : (Binary data 28328 bytes, use -b option to extract)
+[IFD0]          XResolution                     : 72
+[IFD0]          YResolution                     : 72
+[IFD0]          PlanarConfiguration             : Chunky
+[IFD0]          ResolutionUnit                  : inches
+[IFD0]          Software                        : VICAR Program VTIFF
+[IFD0]          ModifyDate                      : 2025:09:18 12:16:52
+[Composite]     ImageSize                       : 7360x4912
+[Composite]     Megapixels                      : 36.2

@@ -1,0 +1,14 @@
+Credits for the two source photos used in the q85 crops (taken from manifest.csv, the source of the README credits table).
+
+building (archives-ii.tif)
+  title:   Archives II, National Archives facility, Maryland
+  author:  Carol M. Highsmith
+  source:  https://commons.wikimedia.org/wiki/File:Archives_II%2C_a_newer_research_and_storage_facility_of_the_National_Archives%2C_in_the_Maryland_suburbs_of_Washington%2C_D.C_LCCN2011633193.tif
+  license: No known restrictions on publication (see https://hdl.loc.gov/loc.pnp/highsm.15000)
+
+lake (chisinau-zoo-lake.tif)
+  title:   Lake in Chisinau Zoo (25 March 2023)
+  author:  Iurie Nistor
+  source:  https://commons.wikimedia.org/wiki/File:Lake_in_Chisinau_Zoo.tif
+  license: CC0 1.0 (own work)
+

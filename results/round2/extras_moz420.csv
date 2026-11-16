@@ -1,0 +1,11 @@
+image,format,target,setting,score,bytes,status,iterations,encoded
+archives-ii,MOZ420,70,68,69.1825,222701,reached,4,work/round2/lossy/archives-ii/MOZ420_t70_q68.jpg
+bush-official-portrait,MOZ420,70,78,70.0997,259281,reached,5,work/round2/lossy/bush-official-portrait/MOZ420_t70_q78.jpg
+chisinau-zoo-lake,MOZ420,70,78,70.9576,659910,reached,5,work/round2/lossy/chisinau-zoo-lake/MOZ420_t70_q78.jpg
+summer-tanager,MOZ420,70,65,70.4444,90750,reached,5,work/round2/lossy/summer-tanager/MOZ420_t70_q65.jpg
+vscode-jxl-rs,MOZ420,70,100,64.8341,604348,NOT REACHED,7,work/round2/lossy/vscode-jxl-rs/MOZ420_t70_q100.jpg
+archives-ii,MOZ420,85,94,84.6420,616304,reached,4,work/round2/lossy/archives-ii/MOZ420_t85_q94.jpg
+bush-official-portrait,MOZ420,85,95,84.5453,851306,reached,6,work/round2/lossy/bush-official-portrait/MOZ420_t85_q95.jpg
+chisinau-zoo-lake,MOZ420,85,97,85.7388,1743385,reached,5,work/round2/lossy/chisinau-zoo-lake/MOZ420_t85_q97.jpg
+summer-tanager,MOZ420,85,94,84.8342,341612,reached,4,work/round2/lossy/summer-tanager/MOZ420_t85_q94.jpg
+vscode-jxl-rs,MOZ420,85,100,64.8341,604348,NOT REACHED,7,work/round2/lossy/vscode-jxl-rs/MOZ420_t85_q100.jpg

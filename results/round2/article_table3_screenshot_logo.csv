@@ -1,0 +1,5 @@
+image,article_name,target,JPEG libjpeg-turbo 4:2:0,JPEG MozJPEG 4:2:0 (forced),WebP,AVIF,JXL
+vscode-jxl-rs.png,screenshot,70,q99; 588194; 64.89; NOT REACHED closest tried,q100; 604348; 64.83; NOT REACHED closest tried,q97; 270816; 59.97; NOT REACHED closest tried,q40; 69496; 70.43; reached,q40; 87586; 70.74; reached
+vscode-jxl-rs.png,screenshot,85,q99; 588194; 64.89; NOT REACHED closest tried,q100; 604348; 64.83; NOT REACHED closest tried,q97; 270816; 59.97; NOT REACHED closest tried,q62; 120812; 85.96; reached,q81; 243142; 85.29; reached
+coaf-logo.png,logo,70,skipped,skipped,q9; 7198; 70.91; reached,q4; 4477; 69.78; reached,q21; 7328; 78.64; NOT REACHED closest tried
+coaf-logo.png,logo,85,skipped,skipped,q75; 9944; 85.27; reached,q37; 7429; 85.92; reached,q50; 8824; 84.73; reached

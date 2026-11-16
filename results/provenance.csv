@@ -1,0 +1,8 @@
+file,camera,software,bit_depth,original_dimensions,downscale_factor_to_2000px,original_bytes,working_png_bytes,blockiness_ratio,verdict
+archives-ii.tif,none recorded,Adobe Photoshop CS5 Macintosh; Adobe Photoshop Camera Raw 6.4.1,16,6955x5440,3.4775,227038648,4669448,1.0025,clean
+bush-official-portrait.tif,none recorded,Adobe Photoshop CS3 Windows; Adobe Photoshop CS4 Windows,8,2366x3000,1.5000,21323600,5600578,1.0024,clean
+chisinau-zoo-lake.tif,none recorded,RawTherapee 5.8,16,6016x4012,3.0080,144818110,6033783,1.0092,clean
+coaf-logo.png,none recorded,none recorded,8,1024x146,1.0000,14695,14206,1.4477,clean
+dsoc-laser.tif,none recorded,VICAR Program VTIFF,8,7360x4912,3.6800,54413896,2494588,1.1022,suspicious
+summer-tanager.tif,Canon EOS 5D Mark III,Adobe Photoshop 23.2 (Macintosh); Adobe Photoshop Camera Raw 14.4 (Macintosh),16,4252x2608,2.1260,66570160,3214871,1.0016,clean
+vscode-jxl-rs.png,none recorded,none recorded,8,1920x1080,1.0000,247017,235612,1.0687,clean

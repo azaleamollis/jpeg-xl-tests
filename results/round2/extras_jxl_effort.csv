@@ -1,0 +1,11 @@
+image,codec,setting,bytes,pct_of_oxipng_png,mismatched_pixels,sha256,same_file_as_existing_result,note
+vscode-jxl-rs,PNG (oxipng),existing result,136172,100.0,,,,from results/lossless.csv
+vscode-jxl-rs,WebP,existing lossless default,77882,57.2,,,,from results/lossless.csv
+vscode-jxl-rs,JXL,cjxl -d 0 -e 7,165312,121.4,0,3ce2252799234fed131ac6a9723a0ea2ce156eb51dc770f5139b51fa77509d1a,True,
+vscode-jxl-rs,JXL,cjxl -d 0 -e 9,155332,114.1,0,c62a88026bc95c6c4dfbb874c8ea7b13c3df34666e5586f34d318f430705d98f,,
+vscode-jxl-rs,JXL,cjxl -d 0 -e 10 --allow_expert_options,103956,76.3,0,2ab44c8fbfcd4a4be7c66bdd9b2a09c260d680ed8924a655f87fd415f0407adc,,
+coaf-logo,PNG (oxipng),existing result,6622,100.0,,,,from results/lossless.csv
+coaf-logo,WebP,existing lossless default,5518,83.3,,,,from results/lossless.csv
+coaf-logo,JXL,cjxl -d 0 -e 7,5136,77.6,0,74ef3fd08d9d039ddd6236992bc3ef39f8b026f01e2cb68f344f8820fb3218bf,True,
+coaf-logo,JXL,cjxl -d 0 -e 9,4759,71.9,0,542a0d74da0a0a267f78677f272a06a90adcfc7c74cc0a34fad780e263dc41e9,,
+coaf-logo,JXL,cjxl -d 0 -e 10 --allow_expert_options,3593,54.3,0,130fea40ed448b04487456cdf635681fd570d5cc4600e0085f2d0882bf813933,,

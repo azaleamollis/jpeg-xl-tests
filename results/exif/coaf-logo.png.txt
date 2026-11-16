@@ -1,0 +1,24 @@
+﻿[ExifTool]      ExifToolVersion                 : 13.59
+[System]        FileName                        : coaf-logo.png
+[System]        Directory                       : sources
+[System]        FileSize                        : 15 kB
+[System]        ZoneIdentifier                  : Exists
+[System]        FileModifyDate                  : 2026:10:16 00:36:32+02:00
+[System]        FileAccessDate                  : 2026:10:16 02:30:13+02:00
+[System]        FileCreateDate                  : 2026:10:16 00:36:52+02:00
+[System]        FilePermissions                 : -rw-rw-rw-
+[File]          FileType                        : PNG
+[File]          FileTypeExtension               : png
+[File]          MIMEType                        : image/png
+[PNG]           ImageWidth                      : 1024
+[PNG]           ImageHeight                     : 146
+[PNG]           BitDepth                        : 8
+[PNG]           ColorType                       : RGB with Alpha
+[PNG]           Compression                     : Deflate/Inflate
+[PNG]           Filter                          : Adaptive
+[PNG]           Interlace                       : Noninterlaced
+[PNG-pHYs]      PixelsPerUnitX                  : 2834
+[PNG-pHYs]      PixelsPerUnitY                  : 2834
+[PNG-pHYs]      PixelUnits                      : meters
+[Composite]     ImageSize                       : 1024x146
+[Composite]     Megapixels                      : 0.150

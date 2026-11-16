@@ -1,0 +1,17 @@
+image,article_name,jpeg_encoder,quality,original_jpeg_bytes,jxl_bytes,saving_percent,sha256_match
+archives-ii.png,building,"JPEG (libjpeg-turbo, baseline)",75,315003,258948,18,yes
+archives-ii.png,building,"JPEG (libjpeg-turbo, baseline)",90,557497,468742,16,yes
+archives-ii.png,building,"JPEG (MozJPEG 4.0.3, progressive)",75,256724,216532,16,yes
+archives-ii.png,building,"JPEG (MozJPEG 4.0.3, progressive)",90,662467,571078,14,yes
+bush-official-portrait.png,portrait,"JPEG (libjpeg-turbo, baseline)",75,325355,271776,16,yes
+bush-official-portrait.png,portrait,"JPEG (libjpeg-turbo, baseline)",90,645771,537930,17,yes
+bush-official-portrait.png,portrait,"JPEG (MozJPEG 4.0.3, progressive)",75,227536,197826,13,yes
+bush-official-portrait.png,portrait,"JPEG (MozJPEG 4.0.3, progressive)",90,937863,832666,11,yes
+chisinau-zoo-lake.png,lake,"JPEG (libjpeg-turbo, baseline)",75,771680,649440,16,yes
+chisinau-zoo-lake.png,lake,"JPEG (libjpeg-turbo, baseline)",90,1212899,1024089,16,yes
+chisinau-zoo-lake.png,lake,"JPEG (MozJPEG 4.0.3, progressive)",75,606977,549390,9,yes
+chisinau-zoo-lake.png,lake,"JPEG (MozJPEG 4.0.3, progressive)",90,1486233,1314947,12,yes
+summer-tanager.png,bird,"JPEG (libjpeg-turbo, baseline)",75,145077,115189,21,yes
+summer-tanager.png,bird,"JPEG (libjpeg-turbo, baseline)",90,317093,258186,19,yes
+summer-tanager.png,bird,"JPEG (MozJPEG 4.0.3, progressive)",75,112115,91347,19,yes
+summer-tanager.png,bird,"JPEG (MozJPEG 4.0.3, progressive)",90,300560,245932,18,yes

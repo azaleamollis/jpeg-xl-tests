@@ -1,0 +1,6 @@
+image,article_name,target,line,setting,bytes,score,status
+vscode-jxl-rs.png,screenshot,70,libjpeg-turbo JPEG 4:4:4 (extra),q69,232149,69.26,reached
+vscode-jxl-rs.png,screenshot,85,libjpeg-turbo JPEG 4:4:4 (extra),q91,472734,85.90,reached
+vscode-jxl-rs.png,screenshot,85,MozJPEG default flags (reference) - subsampling read back: 4:4:4,q91,423734,84.01,reached
+coaf-logo.png,logo,70,JXL on continuous distance -d (extra),d=9.995,7042,77.19,"target not reached, closest tried"
+coaf-logo.png,logo,85,JXL on continuous distance -d (extra),d=3.825,9345,85.03,reached

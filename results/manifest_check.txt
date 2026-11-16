@@ -1,0 +1,18 @@
+sources entries: ['archives-ii.tif', 'bush-official-portrait.tif', 'chisinau-zoo-lake.tif', 'coaf-logo.png', 'dsoc-laser.tif', 'summer-tanager.tif', 'vscode-jxl-rs.png']
+manifest rows: ['bush-official-portrait.tif', 'summer-tanager.tif', 'archives-ii.tif', 'vscode-jxl-rs.png', 'coaf-logo.png', 'chisinau-zoo-lake.tif', 'dsoc-laser.tif']
+in sources, not in manifest: []
+in manifest, not in sources: []
+non-image / unexpected entries in sources: []
+duplicate manifest rows: []
+--- fields containing VERIFY / 'to verify' (case-insensitive), or status != ready:
+  total flagged: 0
+--- manifest original_dimensions vs file header:
+  archives-ii.tif: header 6955x5440; manifest 6955x5440; OK
+  bush-official-portrait.tif: header 2366x3000; manifest 2366x3000; OK
+  chisinau-zoo-lake.tif: header 6016x4012; manifest 6016x4012; OK
+  coaf-logo.png: header 1024x146; manifest 1024x146; OK
+  dsoc-laser.tif: header 7360x4912; manifest 7360x4912; OK
+  summer-tanager.tif: header 4252x2608; manifest 4252x2608; OK
+  vscode-jxl-rs.png: header 1920x1080; manifest 1920x1080; OK
+--- raw bytes check of manifest encoding (summer-tanager title):
+  starts with BOM: False; title repr: 'Summer tanager (Cardenal veranero / Tangara veranera), Río Oro, Santa Ana, San José, Costa Rica'

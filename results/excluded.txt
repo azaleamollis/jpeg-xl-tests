@@ -1,0 +1,1 @@
+dsoc-laser.tif excluded from lossy and lossless tables by user decision: strong 8x8 grid signature (blockiness_ratio 1.1022; likely prior JPEG history, not proven). Kept in provenance table.
